@@ -12,6 +12,10 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/menu.css" />
+
   <title>Food Pick Up - Index</title>
 </head>
 <body>
@@ -54,13 +58,75 @@
   </header>
   <main>
     <div class="menu-container"> <!-- same idea as tweeter. A single container wraps all the dish div-containers-->
-      Menu goes here!
-      <div class="menu-dish"> <!-- AJAX request: dish divs will be loaded-->
-        <img src="./img/images.jpeg" alt="dish">
-        <span>
-          <i class="fa-solid fa-circle-plus add-on-click"></i> <!-- AJAX request: add dish to cart-->
-        </span>
-        Price: $7.99+tax
+      <div class="menu-by-type" class="menu-pizza"> <!-- AJAX request: dish divs will be loaded-->
+        <div class="type-header"> Pizza </div>
+        <div class="dish-list">
+          <div class="dish">
+            <picture class="dish-image-box">
+              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/0c9767c4-442b-4715-ab37-476a61ba2aaf.jpeg" alt="THE ORIGINAL BBQ CHICKEN PIZZA">
+            </picture>
+            <div class="dish-name">THE ORIGINAL BBQ CHICKEN PIZZA</div>
+            <div class="dish-details">
+              <div class="dish-price">$19.99</div>
+              <div class="dish-calorie"> • 190 Cal.</div>
+            </div>
+          </div>
+          <div class="dish">
+            <picture class="dish-image-box">
+              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/80be34a0-46e1-40c6-b10c-d232b29bb087.jpeg" alt="PLANT-BASED BBQ CHICKEN PIZZA">
+            </picture>
+            <div class="dish-name">PLANT-BASED BBQ CHICKEN PIZZA</div>
+            <div class="dish-details">
+              <div class="dish-price">$21.99</div>
+              <div class="dish-calorie"> • 180 Cal.</div>
+            </div>
+          </div>
+          <div class="dish">
+            <picture class="dish-image-box">
+              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/810e5b8d-c0c4-4275-84bc-38a7e52a3607.jpeg" alt="HAWAIIAN">
+            </picture>
+            <div class="dish-name">HAWAIIAN</div>
+            <div class="dish-details">
+              <div class="dish-price">$22.99</div>
+              <div class="dish-calorie"> • 210 Cal.</div>
+            </div>
+          </div>
+          <div class="dish">
+            <picture class="dish-image-box">
+              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/220a3459-4e2f-4587-bad2-45bce6a83e4c.jpeg" alt="PEPPERONI">
+            </picture>
+            <div class="dish-name">PEPPERONI</div>
+            <div class="dish-details">
+              <div class="dish-price">$21.99</div>
+              <div class="dish-calorie"> • 200 Cal.</div>
+            </div>
+          </div>
+          <div class="dish">
+            <picture class="dish-image-box">
+              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/9ae8f61d-e2f3-4dcd-ad44-34b983c38e81.jpeg" alt="MARGHERITA">
+            </picture>
+            <div class="dish-name">MARGHERITA</div>
+            <div class="dish-details">
+              <div class="dish-price">$19.99</div>
+              <div class="dish-calorie"> • 220 Cal.</div>
+            </div>
+          </div>
+          <div class="dish">
+            <picture class="dish-image-box">
+              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/d1bf464f-7121-4002-97f1-84b0fd55d815.jpeg" alt="WILD MUSHROOM">
+            </picture>
+            <div class="dish-name">WILD MUSHROOM</div>
+            <div class="dish-details">
+              <div class="dish-price">$19.99</div>
+              <div class="dish-calorie"> • 150 Cal.</div>
+            </div>
+          </div>
+        </div>
+        <!-- <img src="./img/images.jpeg" alt="dish"> -->
+        <!-- <span> -->
+          <!-- <i class="fa-solid fa-circle-plus add-on-click"></i> AJAX request: add dish to cart -->
+        <!-- </span> -->
+        <!-- Price: $7.99+tax -->
       </div>
     </div>
   </main>

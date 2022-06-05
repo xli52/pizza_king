@@ -1,0 +1,42 @@
+/*
+ * Menu container layout
+ */
+
+ .menu-container {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.type-header {
+  padding-left: 15px;
+  font-size: 24px;
+}
+
+.dish-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.dish {
+  width: 25%;
+  padding:10px;
+  display: flex;
+  flex-direction: column;
+}
+
+// .dish-image-box {
+
+// }
+
+.dish-image {
+  width: 100%;
+  height: 100%;
+}
+
+.dish-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
