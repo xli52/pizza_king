@@ -1,6 +1,11 @@
 // See: https://sass-lang.com/
 
-body,
-html {
-  margin: 0;
+/*
+ * Do not modify these two selectors, please
+ */
+ html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }

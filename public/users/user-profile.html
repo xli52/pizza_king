@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- external tag -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Internal scripts-->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="./styles/layout.css">
+  <link rel="stylesheet" href="./styles/user-cart.css">
+  <link rel="stylesheet" href="./styles/user-profile.css">
+
+  <title>Pizza Pizza - My Profile</title>
+</head>
+<body>
+  <header class="flex-header"> <!-- header should use flex-box, justify-content: space-between. Left div will be navbar, right div will be cart and login-->
+    <div class="head-outer-div-left">
+      <div class="head-div" id="logo">
+        <img src="./img/logo.png" alt="logo">
+      </div>
+
+      <div class="head-div" id="nav-bar">
+        <nav class="nav-bar">
+          <div>
+            Hello, <span id="user">User</span>
+          </div>
+          <div>Menu</div>
+          <div>My profile</div>
+          <div>My orders</div>
+          </nav>
+      </div>
+    </div>
+
+    <div class="head-outer-div-right">
+      <div class="head-div" id="cart">
+        <span>
+            <i class="fa-solid fa-cart-arrow-down cart"></i> <!-- AJAX request -->
+        </span>
+      </div>
+      <div class="head-div" id="logout"> <!-- non-user specific -->
+        <form action="/logout" method="POST" id="login-owner"> <!-- logout and redirect-->
+          <button class="logout-btn">Logout</button>
+        </form>
+      </div>
+    </div>
+  </header>
+  <main>
+    <article class="user-profile-container">
+      <div class="user-profile">
+        <table class="user-profile-table">
+          <th>My Profile</th>
+          <tr>
+            <td>Name</td>
+            <form action="/user/profile/edit" method="POST"> <!-- use req.body to change guide how SQL should work-->
+              <td><input type="text" name="name" value="John Doe"></td>
+              <td><button>Edit</button></td>
+            </form>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <form action="/user/profile/edit" method="POST">
+              <td><input type="tel" name="phone" value="1234567890" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"></td>
+              <td><button>Edit</button></td>
+            </form>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <form action="/user/profile/edit" method="POST">
+              <td><input type="email" name="email" value="johndoe@gmail.com"></td>
+              <td><button>Edit</button></td>
+            </form>
+          </tr>
+        </table>
+      </div>
+    </article>
+  </main>
+  <footer class="flex-footer">
+      <span>Home</span>
+      <span>About Us</span>
+      <span>Contacts</span>
+      <span>Copyright&copy;</span>
+  </footer>
+</body>
+</html>
