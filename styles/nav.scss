@@ -10,14 +10,64 @@
   align-items: center;
 }
 
-.nav-logo {
-  font-size: 36px;
-  font-family: 'Nunito', sans-serif;
+.fa-bars {
+  font-size: 22px;
   font-weight: bold;
-  font-style: italic;
+  margin: auto 15px;
+  cursor: pointer;
+}
+
+.nav-logo {
+  margin: auto 15px;
+  font-size: 30px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+}
+
+.menu-nav-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu-nav-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-button {
+  margin: auto 10px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
 }
 
 .nav-cart {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+.fa-cart-shopping {
+  padding-right: 5px;
+}
+
+.cart-dot-spacer {
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 8px;
+  font-weight: lighter;
+}
+
+.nav-order {
+  background-color: white;
+  border-color: black;
+  color: black;
 }

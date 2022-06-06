@@ -67,13 +67,19 @@
   </header> -->
   <nav class="menu-nav">
     <div class="menu-nav-left">
-      <b class="nav-logo">yummy</b>
+      <i class="fa-solid fa-bars"></i>
+      <b class="nav-logo">Yummy</b>
     </div>
     <div class="menu-nav-right">
-      <div class="nav-cart">
+      <button class="nav-button nav-cart">
         <i class="fa-solid fa-cart-shopping"></i>
+        <div>Cart</div>
+        <div class="cart-dot-spacer">•</div>
         <div class="cart-counter">0</div>
-      </div>
+      </button>
+      <button class="nav-button nav-order">
+        <div>My Orders</div>
+      </button>
     </div>
   </nav>
   <main>
@@ -171,7 +177,7 @@
       </div>
     </div>
   </main>
-  <footer class="flex-footer"> <!-- footer should use flex-box. Justify-content: center. Align-items: center-->
+  <footer class="flex-footer">
     <div>
       <ul>
         <li>Home</li>
