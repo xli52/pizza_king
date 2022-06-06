@@ -1,0 +1,137 @@
+<mxfile host="65bd71144e">
+    <diagram id="9yPKHBGoRijTp4-pAAlY" name="Page-1">
+        <mxGraphModel dx="1136" dy="970" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="72" y="92" width="706" height="516" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Article #orders" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="35" y="45" width="93" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Table #list-table" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="129" width="141" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="*Need a function to render this page" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="135" y="566" width="382" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="div .list-body" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="71" y="254" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="div .list-head" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="71" y="182" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Dish_id" style="shape=table;startSize=65;container=1;collapsible=0;childLayout=tableLayout;fontStyle=1;align=center;pointerEvents=1;" parent="1" vertex="1">
+                    <mxGeometry x="135" y="144" width="606" height="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="37" vertex="1">
+                    <mxGeometry y="65" width="606" height="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="Name" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="38" vertex="1">
+                    <mxGeometry width="133" height="86" as="geometry">
+                        <mxRectangle width="133" height="86" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="40" value="textarea:__&lt;u&gt;Prefilled Text&lt;/u&gt;___________&lt;br&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;class=&quot;name&quot;&lt;/span&gt;&lt;/div&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="38" vertex="1">
+                    <mxGeometry x="133" width="473" height="86" as="geometry">
+                        <mxRectangle width="473" height="86" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="42" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="37" vertex="1">
+                    <mxGeometry y="151" width="606" height="87" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="Description" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="42" vertex="1">
+                    <mxGeometry width="133" height="87" as="geometry">
+                        <mxRectangle width="133" height="87" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="44" value="textarea:__&lt;u&gt;Prefilled Text&lt;/u&gt;___________&lt;br&gt;&lt;div style=&quot;text-align: left&quot;&gt;class=&quot;description&quot;&lt;/div&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="42" vertex="1">
+                    <mxGeometry x="133" width="473" height="87" as="geometry">
+                        <mxRectangle width="473" height="87" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="37" vertex="1">
+                    <mxGeometry y="238" width="606" height="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="Price" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="46" vertex="1">
+                    <mxGeometry width="133" height="86" as="geometry">
+                        <mxRectangle width="133" height="86" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="48" value="textarea:__&lt;u&gt;Prefilled Text&lt;/u&gt;___________&lt;br&gt;&lt;div style=&quot;text-align: left&quot;&gt;class=&quot;price&quot;&lt;/div&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="46" vertex="1">
+                    <mxGeometry x="133" width="473" height="86" as="geometry">
+                        <mxRectangle width="473" height="86" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="50" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="37" vertex="1">
+                    <mxGeometry y="324" width="606" height="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="50" vertex="1">
+                    <mxGeometry width="133" height="86" as="geometry">
+                        <mxRectangle width="133" height="86" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="52" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="50" vertex="1">
+                    <mxGeometry x="133" width="473" height="86" as="geometry">
+                        <mxRectangle width="473" height="86" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="32" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFF66;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="128" y="136" width="621" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontColor=#ffffff;strokeColor=#FF6666;" parent="1" vertex="1">
+                    <mxGeometry x="128.5" y="226" width="620" height="319" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="Submit" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="154" y="485" width="99" height="47" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="" style="curved=1;endArrow=classic;html=1;" parent="1" source="53" edge="1" target="56">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="63" y="517" as="sourcePoint"/>
+                        <mxPoint x="92" y="649" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="113" y="517"/>
+                            <mxPoint x="63" y="467"/>
+                            <mxPoint x="24" y="627"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" style="edgeStyle=none;html=1;" edge="1" parent="1" source="56">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="500" y="775.391489361702" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="56" value="When submit, we create an AJAX request:&lt;br&gt;&lt;span&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;$('#3').on('submit', (event) =&amp;gt; {&lt;br&gt;&lt;span&gt;&#9;&lt;/span&gt;&lt;span&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;event.preventDefeault();&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;br&gt;&lt;span&gt;&#9;&lt;/span&gt;&lt;span&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;$.ajax({&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;type: 'POST',&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;url: '/admin/menu/edit',&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;data: editDish(),&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;success: function() {&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;$('main').empty();&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;renderMenu();&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;}&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;br&gt;&lt;span&gt;&#9;&lt;/span&gt;&lt;span&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;});&lt;br&gt;&lt;span&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;});" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="98" y="642" width="255" height="171" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;flipH=1;strokeColor=#FFFF66;" parent="1" vertex="1">
+                    <mxGeometry x="738" y="242" width="105" height="267" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="Form:&lt;br&gt;id = dish_id" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="841" y="358" width="132" height="141" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="483" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="60" target="56">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="const editDish = () =&amp;gt; {&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;const name = $('.name').val();&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;const description = $('.description').val();&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;const price = $('.price').val();&lt;br&gt;&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;const dish = {dish: [name, description, price]}&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;return dish;&lt;br&gt;};" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="577" width="287" height="182" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="56">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="500" y="847" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="67" value="&lt;meta charset=&quot;utf-8&quot;&gt;&lt;div style=&quot;color: rgb(187, 187, 187); background-color: rgb(40, 44, 52); font-family: &amp;quot;azeret mono&amp;quot;, menlo, monaco, &amp;quot;courier new&amp;quot;, monospace, menlo, monaco, &amp;quot;courier new&amp;quot;, monospace; font-weight: normal; font-size: 12px; line-height: 18px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #61afef&quot;&gt;app&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #98c379&quot;&gt;post&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #e5c07b&quot;&gt;'/edit'&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;,&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; (&lt;/span&gt;&lt;span style=&quot;color: #d19a66 ; font-style: italic&quot;&gt;req&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;,&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #d19a66 ; font-style: italic&quot;&gt;res&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;) &lt;/span&gt;&lt;span style=&quot;color: #56b6c2&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; {&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;  &lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;console&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #98c379&quot;&gt;log&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;req&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;.body)&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;  &lt;/span&gt;&lt;span style=&quot;color: #56b6c2&quot;&gt;let&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;sqlArray&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;  &lt;/span&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;for&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #56b6c2&quot;&gt;const&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;key&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;in&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;req&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;.body)&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; {&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;    &lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;sqlArray&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;req&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;.body[key]&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;;  &lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;    &lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;console&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #98c379&quot;&gt;log&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;(sqlArray)&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;  }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;  &lt;/span&gt;&lt;span style=&quot;color: #7e7c7c&quot;&gt;// then we pass this Array to SQL promise function. After alter, we can just say returning all and send it back to AJAX promise via res.json(), but we won't use the returned json. Rather, we will just empty the main container and re-render the entire menu list.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color: #abb2bf&quot;&gt;)&lt;/span&gt;&lt;span style=&quot;color: #bbbbbb&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="485" y="693" width="594" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="Same layout and concept work for user profile page" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="98" y="1039" width="633" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
