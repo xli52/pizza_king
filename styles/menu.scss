@@ -6,68 +6,108 @@
   padding: 15px 20px;
   display: flex;
   flex-direction: row;
+
+  .type-header {
+    padding-left: 15px;
+    font-size: 24px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+  }
+
+  .dish-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .dish-box {
+      width: 25%;
+
+      .dish {
+        margin:4px;
+        padding: 8px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Nunito', sans-serif;
+        cursor: pointer;
+        position: relative;
+
+        .dish-image-box {
+          height: 200px;
+          overflow:hidden;
+
+          .dish-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            transition: transform .5s ease-in-out;
+          }
+
+          .dish-image:hover {
+            transition: transform .5s ease-in-out;
+            transform: scale(1.15);
+          }
+
+        }
+
+        .dish-name {
+          font-size: 14px;
+          font-weight: 600;
+          padding-top: 5px;
+          padding-bottom: 3px;
+        }
+
+        .dish-details {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          font-size: 14px;
+
+          .dish-dot-spacer {
+            padding-right: 2px;
+            padding-left: 3px;
+            font-size: 8px;
+            font-weight: lighter;
+            color: gray;
+          }
+
+          .dish-calorie {
+            font-weight: 200;
+            color: gray;
+          }
+        }
+
+        .fa-circle-plus {
+          font-size: 30px;
+          /* Make fixed at the upper-right corner */
+          position: absolute;
+          top: 15px;
+          right: 15px;
+
+          background-color: white;
+          border-radius: 50%;
+          border: white solid 1px;
+        }
+
+        .fa-circle-plus:hover {
+          color: #555555;
+        }
+
+      }
+
+      .dish:hover {
+        transition: box-shadow 0.3s ease-in-out;
+        box-shadow: 0px 4px 16px rgb(0 0 0 / 12%);
+
+      }
+    }
+  }
 }
 
-.type-header {
-  padding-left: 15px;
-  font-size: 24px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: bold;
-}
 
-.dish-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
 
-.dish-box {
-  width: 25%;
-}
 
-.dish {
-  margin:12px;
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Nunito', sans-serif;
-  cursor: pointer;
-}
 
-.dish-image-box {
-  height: 200px;
-}
 
-.dish-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.dish-name {
-  font-size: 14px;
-  font-weight: 600;
-  padding-top: 5px;
-  padding-bottom: 3px;
-}
-
-.dish-details {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 14px;
-}
-
-.dish-dot-spacer {
-  padding-right: 2px;
-  padding-left: 3px;
-  font-size: 8px;
-  font-weight: lighter;
-  color: gray;
-}
-
-.dish-calorie {
-  font-weight: 200;
-  color: gray;
-}
