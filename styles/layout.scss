@@ -3,9 +3,13 @@
 /*
  * Do not modify these two selectors, please
  */
- html {
+html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+main {
+  width: 100%;
 }
