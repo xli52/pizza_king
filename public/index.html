@@ -12,14 +12,23 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
+  <!-- External CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,700;0,800;1,800&display=swap" rel="stylesheet">
+
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/menu.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
 
-  <title>Food Pick Up - Index</title>
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Yummy - Order Food Online</title>
 </head>
 <body>
-  <header class="flex-header"> <!-- header should use flex-box, justify-content: space-between. Left div will be navbar, right div will be cart and login-->
+  <!-- <header class="flex-header">
     <div class="head-outer-div-left">
       <div class="head-div" id="logo">
         <img src="./img/temp-logo.webp" alt="logo">
@@ -30,9 +39,9 @@
           Hello, <span id="user">User</span>
           <ul>
             <li>Home</li>
-            <li>My profile</li> <!-- hidden when not login-->
+            <li>My profile</li>
             <li>Menu</li>
-            <li>My Orders</li> <!-- hidden when not login-->
+            <li>My Orders</li>
           </ul>
           </nav>
       </div>
@@ -46,7 +55,7 @@
           <p>Order Now!</p>
         </span>
       </div>
-      <div class="head-div" id="login"> <!-- 2 login buttons: one for owner, one for user -->
+      <div class="head-div" id="login">
         <form action="/login/user" method="POST" id="login-user">
           <button class="login-btn">User Login!</button>
         </form>
@@ -55,82 +64,120 @@
         </form>
       </div>
     </div>
-  </header>
+  </header> -->
+  <nav class="menu-nav">
+    <div class="menu-nav-left">
+      <i class="fa-solid fa-bars"></i>
+      <b class="nav-logo">Yummy</b>
+    </div>
+    <div class="menu-nav-right">
+      <button class="nav-button nav-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div>Cart</div>
+        <div class="cart-dot-spacer">•</div>
+        <div class="cart-counter">0</div>
+      </button>
+      <button class="nav-button nav-order">
+        <div>My Orders</div>
+      </button>
+    </div>
+  </nav>
   <main>
-    <div class="menu-container"> <!-- same idea as tweeter. A single container wraps all the dish div-containers-->
-      <div class="menu-by-type" class="menu-pizza"> <!-- AJAX request: dish divs will be loaded-->
+    <div class="menu-container">
+      <div class="menu-by-type" class="menu-pizza">
         <div class="type-header"> Pizza </div>
         <div class="dish-list">
-          <div class="dish">
-            <picture class="dish-image-box">
-              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/0c9767c4-442b-4715-ab37-476a61ba2aaf.jpeg" alt="THE ORIGINAL BBQ CHICKEN PIZZA">
-            </picture>
-            <div class="dish-name">THE ORIGINAL BBQ CHICKEN PIZZA</div>
-            <div class="dish-details">
-              <div class="dish-price">$19.99</div>
-              <div class="dish-calorie"> • 190 Cal.</div>
+
+          <div class="dish-box">
+            <div class="dish">
+              <picture class="dish-image-box">
+                <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/0c9767c4-442b-4715-ab37-476a61ba2aaf.jpeg" alt="THE ORIGINAL BBQ CHICKEN PIZZA">
+              </picture>
+              <div class="dish-name">THE ORIGINAL BBQ CHICKEN PIZZA</div>
+              <div class="dish-details">
+                <div class="dish-price">$19.99</div>
+                <div class="dish-dot-spacer">•</div>
+                <div class="dish-calorie">190 Cal.</div>
+              </div>
             </div>
           </div>
-          <div class="dish">
-            <picture class="dish-image-box">
-              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/80be34a0-46e1-40c6-b10c-d232b29bb087.jpeg" alt="PLANT-BASED BBQ CHICKEN PIZZA">
-            </picture>
-            <div class="dish-name">PLANT-BASED BBQ CHICKEN PIZZA</div>
-            <div class="dish-details">
-              <div class="dish-price">$21.99</div>
-              <div class="dish-calorie"> • 180 Cal.</div>
+
+          <div class="dish-box">
+            <div class="dish">
+              <picture class="dish-image-box">
+                <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/80be34a0-46e1-40c6-b10c-d232b29bb087.jpeg" alt="PLANT-BASED BBQ CHICKEN PIZZA">
+              </picture>
+              <div class="dish-name">PLANT-BASED BBQ CHICKEN PIZZA</div>
+              <div class="dish-details">
+                <div class="dish-price">$21.99</div>
+                <div class="dish-dot-spacer">•</div>
+                <div class="dish-calorie">180 Cal.</div>
+              </div>
             </div>
           </div>
-          <div class="dish">
-            <picture class="dish-image-box">
-              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/810e5b8d-c0c4-4275-84bc-38a7e52a3607.jpeg" alt="HAWAIIAN">
-            </picture>
-            <div class="dish-name">HAWAIIAN</div>
-            <div class="dish-details">
-              <div class="dish-price">$22.99</div>
-              <div class="dish-calorie"> • 210 Cal.</div>
+
+          <div class="dish-box">
+            <div class="dish">
+              <picture class="dish-image-box">
+                <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/810e5b8d-c0c4-4275-84bc-38a7e52a3607.jpeg" alt="HAWAIIAN">
+              </picture>
+              <div class="dish-name">HAWAIIAN</div>
+              <div class="dish-details">
+                <div class="dish-price">$22.99</div>
+                <div class="dish-dot-spacer">•</div>
+                <div class="dish-calorie">210 Cal.</div>
+              </div>
             </div>
           </div>
-          <div class="dish">
-            <picture class="dish-image-box">
-              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/220a3459-4e2f-4587-bad2-45bce6a83e4c.jpeg" alt="PEPPERONI">
-            </picture>
-            <div class="dish-name">PEPPERONI</div>
-            <div class="dish-details">
-              <div class="dish-price">$21.99</div>
-              <div class="dish-calorie"> • 200 Cal.</div>
+
+          <div class="dish-box">
+            <div class="dish">
+              <picture class="dish-image-box">
+                <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/220a3459-4e2f-4587-bad2-45bce6a83e4c.jpeg" alt="PEPPERONI">
+              </picture>
+              <div class="dish-name">PEPPERONI</div>
+              <div class="dish-details">
+                <div class="dish-price">$21.99</div>
+                <div class="dish-dot-spacer">•</div>
+                <div class="dish-calorie">200 Cal.</div>
+              </div>
             </div>
           </div>
-          <div class="dish">
-            <picture class="dish-image-box">
-              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/9ae8f61d-e2f3-4dcd-ad44-34b983c38e81.jpeg" alt="MARGHERITA">
-            </picture>
-            <div class="dish-name">MARGHERITA</div>
-            <div class="dish-details">
-              <div class="dish-price">$19.99</div>
-              <div class="dish-calorie"> • 220 Cal.</div>
+
+          <div class="dish-box">
+            <div class="dish">
+              <picture class="dish-image-box">
+                <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/9ae8f61d-e2f3-4dcd-ad44-34b983c38e81.jpeg" alt="MARGHERITA">
+              </picture>
+              <div class="dish-name">MARGHERITA</div>
+              <div class="dish-details">
+                <div class="dish-price">$19.99</div>
+                <div class="dish-dot-spacer">•</div>
+                <div class="dish-calorie">220 Cal.</div>
+              </div>
             </div>
           </div>
-          <div class="dish">
-            <picture class="dish-image-box">
-              <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/d1bf464f-7121-4002-97f1-84b0fd55d815.jpeg" alt="WILD MUSHROOM">
-            </picture>
-            <div class="dish-name">WILD MUSHROOM</div>
-            <div class="dish-details">
-              <div class="dish-price">$19.99</div>
-              <div class="dish-calorie"> • 150 Cal.</div>
+
+          <div class="dish-box">
+            <div class="dish">
+              <picture class="dish-image-box">
+                <img class="dish-image" src="https://d1ralsognjng37.cloudfront.net/d1bf464f-7121-4002-97f1-84b0fd55d815.jpeg" alt="WILD MUSHROOM">
+              </picture>
+              <div class="dish-name">WILD MUSHROOM</div>
+              <div class="dish-details">
+                <div class="dish-price">$19.99</div>
+                <div class="dish-dot-spacer">•</div>
+                <div class="dish-calorie">150 Cal.</div>
+              </div>
             </div>
           </div>
+
         </div>
-        <!-- <img src="./img/images.jpeg" alt="dish"> -->
-        <!-- <span> -->
-          <!-- <i class="fa-solid fa-circle-plus add-on-click"></i> AJAX request: add dish to cart -->
-        <!-- </span> -->
-        <!-- Price: $7.99+tax -->
+
       </div>
     </div>
   </main>
-  <footer class="flex-footer"> <!-- footer should use flex-box. Justify-content: center. Align-items: center-->
+  <footer class="flex-footer">
     <div>
       <ul>
         <li>Home</li>
