@@ -3,71 +3,87 @@
  */
 
 .menu-nav {
-  height: 70px;
+  padding-left: 15px;
+  padding-right: 30px;
+
+  height: 65px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
+  background-color: #e63946;
 
-.fa-bars {
-  font-size: 22px;
-  font-weight: bold;
-  margin: auto 15px;
-  cursor: pointer;
-}
-
-.nav-logo {
-  margin: auto 15px;
-  font-size: 30px;
-  font-weight: 800;
-  font-family: 'Nunito', sans-serif;
-  cursor: pointer;
+  /* Make navbar fixed at the top */
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
 }
 
 .menu-nav-left {
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: white;
+
+  .fa-bars {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 15px;
+    cursor: pointer;
+  }
+
+  .nav-logo {
+    margin: 0 15px;
+    padding: 0;
+    font-size: 28px;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
 }
+
 
 .menu-nav-right {
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  .nav-button {
+    margin: auto 10px;
+    padding: 6px 8px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+  }
+
+  .nav-cart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    color: black;
+    border: white solid 2px;
+  }
+
+  .fa-cart-shopping {
+    padding-right: 5px;
+  }
+
+  .cart-dot-spacer {
+    padding-right: 4px;
+    padding-left: 4px;
+    font-size: 8px;
+    font-weight: lighter;
+  }
+
+  .nav-order {
+    background-color: transparent;
+    border: white solid 2px;
+    color: white;
+  }
 }
 
-.nav-button {
-  margin: auto 10px;
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-family: 'Nunito', sans-serif;
-  cursor: pointer;
-}
-
-.nav-cart {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: black;
-  border-color: black;
-  color: white;
-}
-
-.fa-cart-shopping {
-  padding-right: 5px;
-}
-
-.cart-dot-spacer {
-  padding-right: 5px;
-  padding-left: 5px;
-  font-size: 8px;
-  font-weight: lighter;
-}
-
-.nav-order {
-  background-color: white;
-  border-color: black;
-  color: black;
-}
