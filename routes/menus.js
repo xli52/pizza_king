@@ -4,7 +4,7 @@ const router = express.Router();
 const getMenusQuery = function() {
   let query =
   `
-  SELECT * FROM dishes
+  SELECT * FROM dishes;
   `;
   return query;
 };
@@ -12,7 +12,6 @@ const getMenusQuery = function() {
 const menusRouter = (db) => {
   // GET /menus/
   router.get('/', (req, res) => {
-    console.log(req);
     db.query(getMenusQuery())
       .then((results) => {
         res.send(results.rows);
