@@ -12,90 +12,114 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <!-- stylesheets -->
-  <link rel="stylesheet" href="./styles/layout.css">
-  <link rel="stylesheet" href="./styles/user-cart.css">
-  <link rel="stylesheet" href="./styles/user-profile.css">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,700;0,800;1,800&display=swap" rel="stylesheet">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/menu.css" />
+  <link rel="stylesheet" href="../styles/nav.css" />
+  <link rel="stylesheet" href="../styles/tables.css">
+  <link rel="stylesheet" href="../styles/footer.css">
+
+
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <title>Pizza Pizza - Cart</title>
 </head>
 <body>
-  <header class="flex-header"> <!-- header should use flex-box, justify-content: space-between. Left div will be navbar, right div will be cart and login-->
-    <div class="head-outer-div-left">
-      <div class="head-div" id="logo">
-        <img src="./img/logo.png" alt="logo">
-      </div>
-
-      <div class="head-div" id="nav-bar">
-        <nav class="nav-bar">
-          <div>
-            Hello, <span id="user">User</span>
-          </div>
-          <div>Menu</div>
-          <div>My profile</div>
-          <div>My orders</div>
-          </nav>
-      </div>
+  <nav class="menu-nav">
+    <div class="menu-nav-left">
+      <i class="fa-solid fa-bars"></i>
+      <button class="nav-logo">Yummy</button>
     </div>
-
-    <div class="head-outer-div-right">
-      <div class="head-div" id="cart">
-        <span>
-            <i class="fa-solid fa-cart-arrow-down cart"></i> <!-- AJAX request -->
-        </span>
-      </div>
-      <div class="head-div" id="logout"> <!-- non-user specific -->
-        <form action="/logout" method="POST" id="login-owner"> <!-- logout and redirect-->
-          <button class="logout-btn">Logout</button>
-        </form>
-      </div>
+    <div class="menu-nav-right">
+      <button class="nav-button nav-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div>Cart</div>
+        <div class="cart-dot-spacer">•</div>
+        <div class="cart-counter">0</div>
+      </button>
+      <button class="nav-button nav-order">
+        <div>My Orders</div>
+      </button>
     </div>
-  </header>
+  </nav>
   <main>
-    <article class="cart-container"> <!-- same idea as tweeter. A single container wraps all the dish div-containers-->
-      <section class="cart-order"> <!-- AJAX request: dish divs will be loaded-->
-        <div class="cart-table">
-          <table>
-            <th>My cart</th>
+    <article class="cart">
+      <div class="cart-left">
+        <table>
+          <thead>
             <tr>
-              <td>Dish</td>
-              <td>Amount</td>
-              <td>Price</td>
+              <th scope="col">Order No. 1</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
-          </table>
-        </div>
-        <div class="dishes">
-          <table class="cart-table">
             <tr>
-              <td>Spicy beef</td>
-              <td><i class="fa-solid fa-circle-minus"></i> 1 <i class="fa-solid fa-circle-plus"></i></td>
-              <td>$7.99</td>
+              <th scope="col">Customer: John Doe</th>
+              <th scope="col">Date: Jun 5, 2022</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
-          </table>
-        </div>
-      </section>
-      <section class="cart-billing">
-        <div class="cart-billing-total">
-          <h3>Checkout</h3><span><i class="fa-solid fa-cart-circle-check"></i></span>
-          <p>Sub-Total<span>$7.99</span></p>
-          <p>GST 5%<span>$0.40</span></p>
-          <p>PST 7%<span>$0.56</span></p>
+            <tr>
+              <th scope="col">Dish</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Price</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+                <tr>
+                  <td>THE ORIGINAL BBQ SHICKEN PIZZA</td>
+                  <td><input class="dish_id" type="number" min="0" value="2" name="amount"></td>
+                  <td>$19.99</td>
+                  <td><button id="dish_id">Update</button></td>
+                  <td><button class="dish_id" id="delete">Remove</button></td>
+                </tr>
+
+                <tr>
+                  <td>HAWAIIAN</td>
+                  <td><input class="dish_id" type="number" min="0" value="2" name="amount"></td>
+                  <td>$22.99</td>
+                  <td><button id="dish_id">Update</button></td>
+                  <td><button class="dish_id" id="delete">Remove</button></td>
+                </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="cart-right">
+        <div class="cart-bill">
+          <h3>Billing Total</h3>
+          <p>Sub-Total<span>$85.96</span></p>
+          <p>GST 5%<span>$4.30</span></p>
+          <p>PST 7%<span>$6.02</span></p>
           <hr>
-          <p>Total<span>$8.95</span></p>
+          <p>Total<span>$96.28</span></p>
         </div>
         <div class="cart-placeorder">
-          <form action="/cart/placeorder" method="POST">
-            <button id="placeorder-btn">Place my order!</button>
+          <form action="/user/orders" method="GET">
+            <button>Back to customer orders</button>
           </form>
         </div>
-      </section>
+      </div>
     </article>
+
   </main>
-  <footer class="flex-footer">
-      <span>Home</span>
-      <span>About Us</span>
-      <span>Contacts</span>
-      <span>Copyright&copy;</span>
+  <footer id="footer">
+    <span>Home</span>
+    <span>About Us</span>
+    <span>Contacts</span>
+    <span>Copyright&copy;</span>
   </footer>
 </body>
 </html>
