@@ -12,10 +12,10 @@ const getMenusQuery = function() {
 const menusRouter = (db) => {
   // GET /menus/
   router.get('/', (req, res) => {
-    console.log(req);g
+    console.log(req);
     db.query(getMenusQuery())
       .then((results) => {
-        res.json(results.rows);
+        res.send(results.rows);
       })
       .catch((err) => {
         console.log(err.message);
