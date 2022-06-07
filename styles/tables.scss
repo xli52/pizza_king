@@ -7,7 +7,9 @@ article {
 
   h2 {
     margin: 0.5rem;
+    text-align: center;
   }
+
 
   tr {
     height: 3rem;
@@ -19,7 +21,7 @@ article {
   }
 
   td {
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
     height: 4rem;
   }
@@ -31,6 +33,12 @@ article {
   thead.table-head, tbody.table-body {
     width: 100%;
     margin:0;
+  }
+    button {
+    cursor: pointer;
+    border-radius: 20px;
+    height: 2rem;
+    margin: 1.5rem 1rem;
   }
 }
 
