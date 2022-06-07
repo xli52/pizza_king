@@ -5,7 +5,7 @@
 .menu-container {
   padding: 15px 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   .type-header {
     padding-left: 15px;
@@ -21,9 +21,10 @@
 
     .dish-box {
       width: 25%;
+      padding-bottom: 15px;
 
       .dish {
-        margin:4px;
+        margin:5px;
         padding: 8px;
         padding-bottom: 10px;
         display: flex;
