@@ -1,3 +1,7 @@
+// import rendering functions
+
+
+
 //  Setup click home button event listener
 export const setHomeButtonEventListener = function() {
   $('.nav-logo').click(function() {
