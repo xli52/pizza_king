@@ -1,9 +1,7 @@
 
 $(() => {
-  console.log('ready');
   $('.nav-order').on('click', (event) => {
     loadOrders();
-    console.log("orders rendered");
   });
 
   // $('.menu-container').on('click', 'button.d-btn-admin', (event) => {
@@ -24,8 +22,6 @@ const loadOrders = () => {
   $.get('/users/orders', (orders) => {
     $('.menu-container').empty();
     renderOrdersLayout(orders);
-
-    console.log("add details listener");
   })
 };
 
@@ -57,7 +53,6 @@ const renderOrdersLayout = (orders) => {
     const $order = createOrderElement(order);
     orderlist['layout'].children('table').append($order);
   }
-  console.log("layout preped");
   return $('.menu-container').append(orderlist.layout);
 }
 

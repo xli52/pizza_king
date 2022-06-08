@@ -31,7 +31,7 @@ const getOrdersByID = (id) => {
     SELECT id, ordered_at AS date, is_completed AS status
     FROM orders
     WHERE guest_id = $1
-    ORDER BY date DESC;
+    ORDER BY id DESC;
   `, [id])
     .then((result) => {
       return result.rows;
