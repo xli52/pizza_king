@@ -65,6 +65,7 @@ const createMenuElement = function(dishes) {
     }
     menus[currentType].children('.dish-list').append($dish);
   }
+
   return menus;
 }
 
@@ -87,4 +88,10 @@ const loadMenus = function() {
 //  Load page
 $(document).ready(function() {
   loadMenus();
+
+  // When the "Yummy" logo is clicked
+  $('.nav-logo').on('click', () => {
+    $('.menu-container').empty();
+    loadMenus();
+  });
 });

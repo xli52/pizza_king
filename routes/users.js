@@ -6,9 +6,10 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
+
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
@@ -21,5 +22,16 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.get('/orders', (req, res) => {
+    db.getOrdersByID(1)
+      .then(results => res.json(results))
+      .catch(e => console.log(e));
+  })
+
+  router.get('/orders/:id', (req, res) => {
+    console.log(req.params.id);
+  });
+
   return router;
 };
