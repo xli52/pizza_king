@@ -30,7 +30,7 @@ app.use(
   "/styles",
   sassMiddleware({
     source: __dirname + "/styles",
-    destination: __dirname + "/public/styles",
+    destination: __dirname + "./public/styles",
     isSass: false, // false => scss, true => sass
   })
 );
@@ -40,7 +40,7 @@ app.use(cookieSession({
   keys: ['key1', 'key2', 'key3']
 }));
 
-//  app.use(express.static("public"));
+// app.use(express.static("public"));
 app.use("/public", express.static('./public/'));
 
 //  Separated Routes for each Resource
