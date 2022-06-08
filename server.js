@@ -7,10 +7,6 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-const cookieSession = require('cookie-session');
-
-// Helper functions
-const { countAllDishes } = require('./lib/helper');
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -30,18 +26,12 @@ app.use(
   "/styles",
   sassMiddleware({
     source: __dirname + "/styles",
-    destination: __dirname + "./public/styles",
+    destination: __dirname + "/public/styles",
     isSass: false, // false => scss, true => sass
   })
 );
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1', 'key2', 'key3']
-}));
-
-// app.use(express.static("public"));
-app.use("/public", express.static('./public/'));
+app.use(express.static("public"));
 
 //  Separated Routes for each Resource
 //  Note: Feel free to replace the example routes below with your own
@@ -62,12 +52,9 @@ app.use('/orders', orderRoutes(db));
 //  Warning: avoid creating more routes in this file!
 //  Separate them into separate routes files (see above).
 
-app.get("/", (req, res) => {
-  console.log('Refresh home page...');
-  console.log(req.session.cart);
-  const count = countAllDishes(req.session.cart);
-  res.render('index', { count });
-});
+// app.get("/", (req, res) => {
+
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

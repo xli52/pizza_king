@@ -1,16 +1,3 @@
-// import rendering functions
-import {renderOrdersLayout} from './orders';
-
-
-//  Setup click home button event listener
-export const setHomeButtonEventListener = function() {
-  $('.nav-logo').click(function() {
-    $.get('/', () => {
-      console.log('Back or refresh home page...')
-    });
-  });
-};
-
 //  Setup click cart button event listener
 export const setCartButtonEventListener = function() {
   $('.nav-cart').click(function() {
