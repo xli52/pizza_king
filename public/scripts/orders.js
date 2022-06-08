@@ -4,23 +4,23 @@ $(() => {
     loadOrders();
   });
 
-  // $('.menu-container').on('click', 'button.d-btn-admin', (event) => {
-
-  //   const id = event.target.id;
-  //   $.ajax({
-  //     url: `users/orders/${id}`,
-  //     success: function() {
-  //       console.log("hello");
-  //     }
-  //   })
-  // })
+  $('main').on('click', 'button.d-btn-admin', (event) => {
+    console.log('1234');
+    const id = event.target.id;
+    $.ajax({
+      url: `users/orders/${id}`,
+      success: function() {
+        console.log("hello");
+      }
+    })
+  })
 
 });
 
 
 const loadOrders = () => {
   $.get('/users/orders', (orders) => {
-    $('.menu-container').empty();
+    $('main').empty();
     renderOrdersLayout(orders);
   })
 };
@@ -53,7 +53,7 @@ const renderOrdersLayout = (orders) => {
     const $order = createOrderElement(order);
     orderlist['layout'].children('table').append($order);
   }
-  return $('.menu-container').append(orderlist.layout);
+  return $('main').append(orderlist.layout);
 }
 
 const createOrderElement = (order) => {
