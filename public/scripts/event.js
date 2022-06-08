@@ -1,3 +1,6 @@
+// import {renderOrdersLayout} from "./order_page"
+const { renderOrdersLayout } = require('./order_page');
+
 //  Setup click cart button event listener
 export const setCartButtonEventListener = function() {
   $('.nav-cart').click(function() {

@@ -1,5 +1,6 @@
 // order page rendering functions here
-export const renderOrdersLayout = (orders) => {
+
+const renderOrdersLayout = (orders) => {
 
   const orderlist = {};
   orderlist['layout'] = $(`
@@ -61,8 +62,10 @@ const escapeText = function (str) {
   return div.innerHTML;
 };
 
-
-
+module.exports = {
+  renderOrdersLayout
+}
+;
 // $(() => {
 //   $('.nav-order').on('click', (event) => {
 //     loadOrders();
