@@ -4,7 +4,6 @@
 
 import {
   setAddToCartEventListener,
-  setHomeButtonEventListener,
   setCartButtonEventListener,
   setOrderButtonEventListener
 } from "./event.js";
@@ -77,17 +76,19 @@ const createMenuElement = function(dishes) {
 
 // Create HTML elements for all menus and append them to the menu container
 const renderMenus = function(data) {
+  const $menuContainer = $('<div class="menu-container"></div>');
   const menus = createMenuElement(data);
   for (const index in menus) {
-    $('.menu-container').append(menus[index]);
+    $menuContainer.append(menus[index]);
   }
+  $('main').append($menuContainer);
 }
 
 //  Load menu and all dishes using AJAX request and setup all event listeners
 const loadMenus = function() {
   $.get('/menus', (data) => {
-    renderMenus(data);
-    setHomeButtonEventListener();
+    renderMenus(data[0]);
+    $('.cart-counter').text(data[1]);
     setAddToCartEventListener();
     setCartButtonEventListener();
     setOrderButtonEventListener();
@@ -97,4 +98,9 @@ const loadMenus = function() {
 //  Load page
 $(document).ready(function() {
   loadMenus();
+  // When the "Yummy" logo is clicked
+  $('.nav-logo').on('click', () => {
+    $('main').empty();
+    loadMenus();
+  });
 });
