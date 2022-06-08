@@ -6,16 +6,16 @@ $(() => {
     console.log("orders rendered");
   });
 
-  $('.menu-container').on('click', 'button.d-btn-admin', (event) => {
+  // $('.menu-container').on('click', 'button.d-btn-admin', (event) => {
 
-    const id = event.target.id;
-    $.ajax({
-      url: `users/orders/${id}`,
-      success: function() {
-        console.log("hello");
-      }
-    })
-  })
+  //   const id = event.target.id;
+  //   $.ajax({
+  //     url: `users/orders/${id}`,
+  //     success: function() {
+  //       console.log("hello");
+  //     }
+  //   })
+  // })
 
 });
 
@@ -39,10 +39,12 @@ const renderOrdersLayout = (orders) => {
       <table class="table">
         <thead class="table-head">
           <tr>
+            <th scope="col"></th>
             <th scope="col">Order_id</th>
             <th scope="col">Date</th>
             <th scope="col">Details</th>
             <th scope="col">Status</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody class="table-body>
@@ -60,6 +62,7 @@ const renderOrdersLayout = (orders) => {
 }
 
 const createOrderElement = (order) => {
+  const $photo = escapeText(order.photo);
   const $id = escapeText(order.id);
   const $date = escapeText(order.date.substring(0, 10));
   let $status;
@@ -72,10 +75,12 @@ const createOrderElement = (order) => {
 
   const $order = $(`
     <tr>
+    <td><img src="${$photo}" alt="" class="cart-image"></td>
     <td>${$id}</td>
     <td>${$date}</td>
     <td><button class="d-btn-admin" id="${$id}">Details</button></td>
     <td>Pending</td>
+    <td></td>
     </tr>
   `)
   return $order;

@@ -28,9 +28,11 @@ exports.getMenusQuery = getMenusQuery;
 
 const getOrdersByID = (id) => {
   return db.query(`
-    SELECT id, ordered_at AS date, is_completed AS status
-    FROM orders
-    WHERE guest_id = $1
+    SELECT o.id, o.ordered_at AS date, o.is_completed AS status, (SELECT photo_url FROM ) AS photo
+    FROM orders_dishes od
+      JOIN dishes d ON od.dish_id = d.id
+      JOIN orders o ON o.id = od.order_id
+    WHERE o.guest_id = $1
     ORDER BY date DESC;
   `, [id])
     .then((result) => {

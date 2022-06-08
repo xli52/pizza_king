@@ -23,12 +23,16 @@ module.exports = (db) => {
       });
   });
 
+  // /:id/orders
   router.get('/orders', (req, res) => {
     db.getOrdersByID(1)
-      .then(results => res.json(results))
+      .then(results => {
+        console.log(results);
+        res.json(results)})
       .catch(e => console.log(e));
   })
 
+  // /:id/orders/:order_id
   router.get('/orders/:id', (req, res) => {
     console.log(req.params.id);
   });
