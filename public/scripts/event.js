@@ -11,7 +11,7 @@ export const setHomeButtonEventListener = function() {
 export const setCartButtonEventListener = function() {
   $('.nav-cart').click(function() {
     $.get('/cart', (cart) => {
-
+      console.log('Redering cart page...');
     });
   });
 };
@@ -19,7 +19,7 @@ export const setCartButtonEventListener = function() {
 //  Setup click order button event listener
 export const setOrderButtonEventListener = function() {
   $('.nav-order').click(function() {
-    $.get('/orders', (orders) => {
+    $.get('/orders', () => {
       console.log('Rendering order page...');
     });
   });
