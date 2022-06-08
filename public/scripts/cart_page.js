@@ -1,18 +1,7 @@
-$(() => {
-  $('.nav-cart').on('click', () => {
-    // $.get('/users/cart', () => {
-      $('.menu-container').empty();
-      // need another line here to grab session data
-      loadFakePage();
-    // })
-  })
-});
-
-//////////////////////////////////////
-// Redering
-/////////////////////////////////////
-
-const loadFakePage = () => {
+//  Render cart contains
+export const loadCartPage = (cart) => {
+  $('main').empty();
+  const $cartContainer = $('<div class="cart-container"></div>');
   const $fake = $(`
     <article class="cart">
       <div class="cart-left">
@@ -75,20 +64,6 @@ const loadFakePage = () => {
       </div>
     </article>
   `);
-
-  return $('.menu-container').append($fake);
-}
-
-
-
-const loadCartOrders = () => {
-
-}
-
-const loadCartLayout = () => {
-
-}
-
-const renderCard = (data) => {
-
+  $cartContainer.append($fake)
+  $('main').append($cartContainer);
 }

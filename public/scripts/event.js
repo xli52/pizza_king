@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 // import {renderOrdersLayout} from "./order_page"
 const { renderOrdersLayout } = require('./order_page');
+=======
+import { loadCartPage } from "./cart_page.js";
+>>>>>>> c92de6de2a0042b47b230e9fd5a2cabf12838b90
 
 //  Setup click cart button event listener
 export const setCartButtonEventListener = function() {
   $('.nav-cart').click(function() {
     $.get('/cart', (cart) => {
-      console.log('Redering cart page...');
+      console.log('Loading cart: ', cart);
+      loadCartPage(cart);
     });
   });
 };
