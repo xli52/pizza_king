@@ -2,6 +2,13 @@
 *  Client facing scripts here
 */
 
+import {
+  setAddToCartEventListener,
+  setHomeButtonEventListener,
+  setCartButtonEventListener,
+  setOrderButtonEventListener
+} from "./event.js";
+
 // Validate input text from cross-scripting attack
 const escapeText = function (str) {
   let div = document.createElement("div");
@@ -28,7 +35,7 @@ const createDishElement = function(dish) {
           <div class="dish-dot-spacer">•</div>
           <div class="dish-calorie">${escapeText(dish.calorie)} Cal.</div>
         </div>
-        <i class="fa-solid fa-circle-plus" id="${escapeText(dish.id)}"></i>
+        <i class="fa-solid fa-circle-plus quick-add-to-cart" id="dish-id-${escapeText(dish.id)}"></i>
       </div>
     </div>
     `
@@ -76,11 +83,14 @@ const renderMenus = function(data) {
   }
 }
 
-//  Load menu and all dishes using AJAX request
+//  Load menu and all dishes using AJAX request and setup all event listeners
 const loadMenus = function() {
   $.get('/menus', (data) => {
-    console.log('data: ', data[0]);
     renderMenus(data);
+    setHomeButtonEventListener();
+    setAddToCartEventListener();
+    setCartButtonEventListener();
+    setOrderButtonEventListener();
   });
 };
 

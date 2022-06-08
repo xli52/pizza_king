@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Home Page</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- external tag -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- Internal scripts-->
+  <script type="text/javascript" src="/public/vendor/jquery-3.0.0.js"></script>
+  <script type="module" src="/public/scripts/app.js"></script>
+  <script type="module" src="/public/scripts/event.js"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,700;0,800;1,800&display=swap" rel="stylesheet">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/public/styles/layout.css" />
+  <link rel="stylesheet" href="/public/styles/menu.css" />
+  <link rel="stylesheet" href="/public/styles/nav.css" />
+
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Yummy - Order Food Online</title>
 </head>
-
 <body>
-  <h1>Have fun! 🥔</h1>
+  <nav class="menu-nav">
+    <div class="menu-nav-left">
+      <i class="fa-solid fa-bars"></i>
+      <button class="nav-logo">Yummy</button>
+    </div>
+    <div class="menu-nav-right">
+      <button class="nav-button nav-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div>Cart</div>
+        <div class="cart-dot-spacer">•</div>
+        <div class="cart-counter"><%= count %></div>
+      </button>
+      <button class="nav-button nav-order">
+        <div>My Orders</div>
+      </button>
+    </div>
+  </nav>
+  <main>
+    <div class="menu-container"></div>
+  </main>
+  <footer class="flex-footer">
+    <div>
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Contacts</li>
+        <li>Copyright&copy;</li>
+      </ul>
+    </div>
+  </footer>
 </body>
-
 </html>

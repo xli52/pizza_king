@@ -19,7 +19,10 @@
     "morgan": "^1.9.1",
     "normalize.css": "^8.0.1",
     "pg": "^8.5.0",
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "bcryptjs": "^2.4.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.10"

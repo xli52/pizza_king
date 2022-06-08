@@ -7,6 +7,10 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const cookieSession = require('cookie-session');
+
+// Helper functions
+const { countAllDishes } = require('./lib/helper');
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -31,27 +35,38 @@ app.use(
   })
 );
 
-app.use(express.static("public"));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2', 'key3']
+}));
 
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+//  app.use(express.static("public"));
+app.use("/public", express.static('./public/'));
+
+//  Separated Routes for each Resource
+//  Note: Feel free to replace the example routes below with your own
+const usersRoutes = require('./routes/users');
 const menusRoutes = require('./routes/menus');
+const cartRoutes = require('./routes/cart');
+const orderRoutes = require('./routes/orders');
 
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+//  Mount all resource routes
+//  Note: Feel free to replace the example routes below with your own
+app.use("/users", usersRoutes(db));
 app.use('/menus', menusRoutes(db));
-// Note: mount other resources here, using the same pattern above
+app.use('/cart', cartRoutes(db));
+app.use('/orders', orderRoutes(db));
+//  Note: mount other resources here, using the same pattern above
 
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
+//  Home page
+//  Warning: avoid creating more routes in this file!
+//  Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  console.log('Refresh home page...');
+  console.log(req.session.cart);
+  const count = countAllDishes(req.session.cart);
+  res.render('index', { count });
 });
 
 app.listen(PORT, () => {
