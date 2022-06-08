@@ -49,11 +49,7 @@ const countAllDishes = function(cart) {
   return count;
 };
 
-
-
-
 // ////////////////////////////////
-
 
 const renderOrdersLayout = (orders) => {
   console.log("rendering layout");
