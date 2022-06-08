@@ -10,8 +10,8 @@ export const setHomeButtonEventListener = function() {
 //  Setup click cart button event listener
 export const setCartButtonEventListener = function() {
   $('.nav-cart').click(function() {
-    $.get('/cart', (data) => {
-      console.log('Rendering cart page...');
+    $.get('/cart', (cart) => {
+
     });
   });
 };
@@ -19,7 +19,7 @@ export const setCartButtonEventListener = function() {
 //  Setup click order button event listener
 export const setOrderButtonEventListener = function() {
   $('.nav-order').click(function() {
-    $.get('/orders', () => {
+    $.get('/orders', (orders) => {
       console.log('Rendering order page...');
     });
   });
