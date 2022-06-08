@@ -15,7 +15,8 @@ const orderRouter = (db) => {
     const queryString =
     `
     SELECT * FROM orders
-    WHERE guess_id = $1;
+    WHERE guest_id = $1
+    ORDER BY guest_id DESC;
     `;
     const queryParams = [req.session.userID]
 

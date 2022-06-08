@@ -13,7 +13,7 @@ export const setOrderButtonEventListener = function() {
     console.log('orders button clicked');
     const id = 1;
     $.ajax({
-      url: `/users/${id}/orders`,
+      url: `/orders`,
       success: (orders) => {
         $('.menu-container').empty();
         renderOrdersLayout(orders);
@@ -47,69 +47,4 @@ const countAllDishes = function(cart) {
     count += cart[index];
   }
   return count;
-};
-
-// ////////////////////////////////
-
-const renderOrdersLayout = (orders) => {
-  console.log("rendering layout");
-  const orderlist = {};
-  orderlist['layout'] = $(`
-      <article>
-      <h2>Orders</h2>
-
-      <table class="table">
-        <thead class="table-head">
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Order_id</th>
-            <th scope="col">Date</th>
-            <th scope="col">Details</th>
-            <th scope="col">Status</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody class="table-body>
-        123
-        </tbody>
-      </table>
-    </article>`);
-
-  for (const order of orders) {
-    const $order = createOrderElement(order);
-    orderlist['layout'].children('table').append($order);
-  }
-  $('.menu-container').append(orderlist.layout);
-}
-
-const createOrderElement = (order) => {
-  console.log('creating order element');
-  const $photo = escapeText(order.photo);
-  const $id = escapeText(order.id);
-  const $date = escapeText(order.date.substring(0, 10));
-  let $status;
-
-  if (order.status === 'true') {
-    $status = 'Completed';
-  } else {
-    $status = 'Pending';
-  }
-
-  const $order = $(`
-    <tr>
-    <td><img src="${$photo}" alt="" class="cart-image"></td>
-    <td>${$id}</td>
-    <td>${$date}</td>
-    <td><button class="d-btn-admin" id="${$id}">Details</button></td>
-    <td>Pending</td>
-    <td></td>
-    </tr>
-  `)
-  return $order;
-};
-
-const escapeText = function (str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
 };
