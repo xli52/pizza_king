@@ -1,8 +1,11 @@
+import { loadCartPage } from "./cart_page.js";
+
 //  Setup click cart button event listener
 export const setCartButtonEventListener = function() {
   $('.nav-cart').click(function() {
     $.get('/cart', (cart) => {
-      console.log('Redering cart page...');
+      console.log('Loading cart: ', cart);
+      loadCartPage(cart);
     });
   });
 };
