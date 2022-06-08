@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-// import {renderOrdersLayout} from "./order_page"
-const { renderOrdersLayout } = require('./order_page');
-=======
 import { loadCartPage } from "./cart_page.js";
->>>>>>> c92de6de2a0042b47b230e9fd5a2cabf12838b90
+import { renderOrdersLayout } from './order_page.js'
 
 //  Setup click cart button event listener
 export const setCartButtonEventListener = function() {
@@ -23,7 +19,7 @@ export const setOrderButtonEventListener = function() {
     $.ajax({
       url: `/orders`,
       success: (orders) => {
-        $('.menu-container').empty();
+        $('main').empty();
         renderOrdersLayout(orders);
       }
     });

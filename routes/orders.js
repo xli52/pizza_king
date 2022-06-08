@@ -14,7 +14,8 @@ const orderRouter = (db) => {
     //  Get all orders by user from database
     const queryString =
     `
-    SELECT * FROM orders
+    SELECT id, ordered_at AS date, is_completed AS status
+    FROM orders
     WHERE guest_id = $1
     ORDER BY guest_id DESC;
     `;
