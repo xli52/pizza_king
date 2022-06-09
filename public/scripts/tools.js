@@ -18,3 +18,8 @@ export const countAllDishes = function(cart) {
   }
   return count;
 };
+
+export const getCurrentDate = function() {
+  const today = new Date();
+  return `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+};

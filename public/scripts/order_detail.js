@@ -8,7 +8,6 @@ $(() => {
         type:'GET',
         url: `/orders/${orderID}`,
         success: (details) => {
-          console.log('details: ', details);
           renderOrderDetailsLayout(details);
         }
       })

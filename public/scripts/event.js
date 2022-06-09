@@ -5,9 +5,8 @@ import { countAllDishes } from "./tools.js";
 //  Setup click cart button event listener
 export const setCartButtonEventListener = function() {
   $('.nav-cart').click(function() {
-    $.get('/cart', (cart) => {
-      console.log('Loading cart: ', cart);
-      renderCart(cart);
+    $.get('/cart', (dishes) => {
+      renderCart(dishes);
     });
   });
 };

@@ -1,12 +1,14 @@
+import { getCurrentDate } from "./tools.js";
+
 //  Render cart contains
-export const renderCart = (cart) => {
+export const renderCart = (dishes) => {
   $('main').empty();
   const $cartContainer = $(`
     <div class="cart-container">
       <article class="cart">
         <div class="cart-left">
           <div>My Cart</div>
-          <div>Customer: John Doe  Date: ${Date.now()}</div>
+          <div>Customer: John Doe  Date: ${getCurrentDate()}</div>
           <table>
             <thead>
               <tr>
@@ -42,14 +44,14 @@ export const renderCart = (cart) => {
 
   $('main').append($cartContainer);
 
-  for (const index in cart) {
-    $('.cart-dish-table').append(createCartDishElement(index, cart[index]));
+  for (const dish of dishes) {
+    $('.cart-dish-table').append(createCartDishElement(dish));
   }
 
 }
 
 //  Create HTML table element for each dish item in cart
-const createCartDishElement = function(dish, amount) {
+const createCartDishElement = function(dish) {
   const $dishTable =
   `
   <tr>

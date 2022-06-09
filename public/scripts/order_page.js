@@ -45,12 +45,12 @@ const createOrderElement = (order) => {
 
   const $order = $(`
     <tr>
-    <td><img src="${$photo}" alt="" class="cart-image"></td>
-    <td>${$id}</td>
-    <td>${$date}</td>
-    <td><button class="d-btn-admin" id="${$id}">Details</button></td>
-    <td>Pending</td>
-    <td></td>
+      <td><img src="${$photo}" alt="" class="cart-image"></td>
+      <td>${$id}</td>
+      <td>${$date}</td>
+      <td><button class="d-btn-admin" id="${$id}">Details</button></td>
+      <td>Pending</td>
+      <td></td>
     </tr>
   `)
   return $order;
