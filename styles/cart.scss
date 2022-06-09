@@ -36,3 +36,15 @@
 .cart-place-order {
   font-size: 20px;
 }
+
+.order-success {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .view-orders {
+    font-size: 20px;
+  }
+}

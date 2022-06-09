@@ -1,4 +1,4 @@
-import { renderCart, renderEmptyCart, updateBillDetails } from "./cart_page.js";
+import { renderCart, renderEmptyCart, renderOrderSuccessPage, updateBillDetails } from "./cart_page.js";
 import { renderOrdersLayout } from './order_page.js'
 import { countAllDishes, getIDFromAttr } from "./tools.js";
 import { loadMenus } from "./app.js";
@@ -166,8 +166,19 @@ export const setBackButtonEventListener = function() {
 const setPlaceOrderButtonEventListner = function() {
   $('.cart-place-order').click(function() {
     $.post('/orders', (data) => {
-      console.log('Order placed sucessfully!')
+      $('.cart-counter').text(0);
+      renderOrderSuccessPage();
+      setViewOrdersButtonEventListener();
       //  Send SMS to owner and guest...
+    });
+  });
+};
+
+//  Setup view orders button click listener
+const setViewOrdersButtonEventListener = function() {
+  $('.view-orders').click(function() {
+    $.get('/orders', (orders) => {
+      renderOrdersLayout(orders);
     });
   });
 };

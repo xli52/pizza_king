@@ -57,11 +57,23 @@ export const renderEmptyCart =  function() {
   $('main').empty();
   const $emptyCart = $(`
     <div class="empty-cart">
-      <h1> Your cart is empty! </h1>
+      <h1> Your cart is empty! 😬</h1>
       <button class="back-to-menu">Back To Menu <i class="fa-solid fa-pizza-slice"></i></button>
     <div>
   `);
   $('main').append($emptyCart);
+}
+
+//  Render order successfull page
+export const renderOrderSuccessPage =  function() {
+  $('main').empty();
+  const $orderSuccessPage = $(`
+    <div class="order-success">
+      <h1>Your order has been placed! 😊</h1>
+      <button class="view-orders">View Orders</button>
+    <div>
+  `);
+  $('main').append($orderSuccessPage);
 }
 
 //  Create HTML table element for each dish item in cart
