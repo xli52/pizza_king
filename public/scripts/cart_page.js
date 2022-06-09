@@ -1,6 +1,6 @@
 import { getCurrentDate, escapeText, getBillDetails } from "./tools.js";
 
-//  Render cart contains
+//  Render cart page
 export const renderCart = function(dishes) {
   $('main').empty();
 
@@ -17,7 +17,7 @@ export const renderCart = function(dishes) {
           <h2>My Cart</h2>
           <table>
             <thead>
-              <tr>
+              <tr class="cart-table-header">
                 <th scope="col">Dish</th>
                 <th scope="col">Name</th>
                 <th scope="col">Amount</th>
@@ -49,31 +49,6 @@ export const renderCart = function(dishes) {
   for (const dish of dishes) {
     $('.cart-dish-table').append(createCartDishElement(dish));
   }
-
-}
-
-//  Render empty cart contains
-export const renderEmptyCart =  function() {
-  $('main').empty();
-  const $emptyCart = $(`
-    <div class="empty-cart">
-      <h1> Your cart is empty! 😬</h1>
-      <button class="back-to-menu">Back To Menu <i class="fa-solid fa-pizza-slice"></i></button>
-    <div>
-  `);
-  $('main').append($emptyCart);
-}
-
-//  Render order successfull page
-export const renderOrderSuccessPage =  function() {
-  $('main').empty();
-  const $orderSuccessPage = $(`
-    <div class="order-success">
-      <h1>Your order has been placed! 😊</h1>
-      <button class="view-orders">View Orders</button>
-    <div>
-  `);
-  $('main').append($orderSuccessPage);
 }
 
 //  Create HTML table element for each dish item in cart
@@ -100,6 +75,30 @@ const createCartDishElement = function(dish) {
   `;
   return $dishTable;
 };
+
+//  Render empty cart contains
+export const renderEmptyCart =  function() {
+  $('main').empty();
+  const $emptyCart = $(`
+    <div class="empty-cart">
+      <h1> Your cart is empty! 😬</h1>
+      <button class="back-to-menu">Back To Menu <i class="fa-solid fa-pizza-slice"></i></button>
+    <div>
+  `);
+  $('main').append($emptyCart);
+}
+
+//  Render order success page
+export const renderOrderSuccessPage =  function() {
+  $('main').empty();
+  const $orderSuccessPage = $(`
+    <div class="order-success">
+      <h1>Your order has been placed! 😊</h1>
+      <button class="view-orders">View Orders</button>
+    <div>
+  `);
+  $('main').append($orderSuccessPage);
+}
 
 export const updateBillDetails = function(dishes) {
   const billDetails = getBillDetails(dishes);

@@ -12,9 +12,8 @@ const cartRouter = (db) => {
   router.get('/', (req, res) => {
     //  Get cart from cookie
     const cart = req.session.cart;
-
     //  Return empty array if cart is empty
-    if (Object.keys(cart).length === 0 || !cart) {
+    if (!cart || Object.keys(cart).length === 0) {
       res.send([]);
     }
 

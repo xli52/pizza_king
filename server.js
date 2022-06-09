@@ -34,17 +34,15 @@ app.use(
 app.use(express.static("public"));
 
 //  Separated Routes for each Resource
-const usersRoutes = require('./routes/users');
 const menusRoutes = require('./routes/menus');
 const cartRoutes = require('./routes/cart');
 const orderRoutes = require('./routes/orders');
 
 //  Mount all resource routes
-app.use("/users", usersRoutes(db));
 app.use('/menus', menusRoutes(db));
 app.use('/cart', cartRoutes(db));
 app.use('/orders', orderRoutes(db));
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Yummy listening on port ${PORT}`);
 });
