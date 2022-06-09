@@ -6,21 +6,15 @@ import { loadMenus } from "./app.js";
 //  Setup click order button event listener
 export const setOrderButtonEventListener = function() {
   $('.nav-order').click(function() {
-    $.ajax({
-      url: `/orders`,
-      success: (orders) => {
+    $.get('orders', (orders) => {
         renderOrdersLayout(orders);
-      }
     });
   });
 
   $('main').on('click', '.back-btn', () => {
-    $.ajax({
-      url: `/orders`,
-      success: (orders) => {
+    $.get('orders', (orders) => {
         renderOrdersLayout(orders);
-      }
-    });
+     });
   });
 };
 
