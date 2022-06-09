@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const cookieSession = require('cookie-session');
 
-// Helper functions
-const { countAllDishes } = require('../lib/helper');
-
 router.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2', 'key3']
@@ -22,7 +19,11 @@ const menusRouter = (db) => {
     db.query('SELECT * FROM dishes;')
       .then((results) => {
         const dishes = results.rows;
-        const count = countAllDishes(req.session.cart);
+        const cart = req.session.cart;
+        let count = 0;
+        for (const key in cart) {
+          count += cart[key];
+        }
         res.send({ dishes, count });
       })
       .catch((err) => {

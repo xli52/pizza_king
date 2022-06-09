@@ -63,8 +63,8 @@ const createMenuElement = function(dishes) {
 const renderMenus = function(data) {
   const $menuContainer = $('<div class="menu-container"></div>');
   const menus = createMenuElement(data);
-  for (const index in menus) {
-    $menuContainer.append(menus[index]);
+  for (const key in menus) {
+    $menuContainer.append(menus[key]);
   }
   $('main').append($menuContainer);
 }

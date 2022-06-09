@@ -1,4 +1,4 @@
-import { getCurrentDate, escapeText, getBillDetails } from "./tools.js";
+import { escapeText, getBillDetails } from "./tools.js";
 
 //  Render cart page
 export const renderCart = function(dishes) {
@@ -94,7 +94,7 @@ export const renderOrderSuccessPage =  function() {
   const $orderSuccessPage = $(`
     <div class="order-success">
       <h1>Your order has been placed! 😊</h1>
-      <button class="view-orders">View Orders</button>
+      <button class="view-order">View Order Details</button>
     <div>
   `);
   $('main').append($orderSuccessPage);

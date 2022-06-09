@@ -12,8 +12,8 @@ export const capFirstLetter = function(string) {
 // Count the total number of item in the cart object
 export const countAllDishes = function(cart) {
   let count = 0;
-  for (const index in cart) {
-    count += cart[index];
+  for (const key in cart) {
+    count += cart[key];
   }
   return count;
 };
@@ -46,7 +46,6 @@ export const getIDFromAttr = function(idString) {
   return array[array.length - 1];
 };
 
-
 // Get an order's order_id, username, and date for order detail page
 export const getOrderHeading = function (dishes) {
   const orderID = escapeText(dishes[0].order_id);
@@ -55,7 +54,6 @@ export const getOrderHeading = function (dishes) {
 
   return { orderID, userName, date };
 }
-
 
 // Get detail info of each dish user ordered
 export const getOrderDetails = function (dish) {

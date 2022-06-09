@@ -2,6 +2,7 @@ import { renderCart, renderEmptyCart, renderOrderSuccessPage, updateBillDetails 
 import { renderOrdersLayout } from './order_page.js'
 import { countAllDishes, getIDFromAttr } from "./tools.js";
 import { loadMenus } from "./app.js";
+import { renderOrderDetailsLayout } from "./order_detail.js";
 
 //  Setup click order button event listener
 export const setOrderButtonEventListener = function() {
@@ -159,20 +160,22 @@ export const setBackButtonEventListener = function() {
 //  Set up place order button click listener
 const setPlaceOrderButtonEventListner = function() {
   $('.cart-place-order').click(function() {
-    $.post('/orders', (data) => {
+    $.post('/orders', (order) => {
       $('.cart-counter').text(0);
       renderOrderSuccessPage();
-      setViewOrdersButtonEventListener();
+      $(window).scrollTop(0);
+      setViewOrderButtonEventListener(order);
       //  Send SMS to owner and guest...
     });
   });
 };
 
 //  Setup view orders button click listener
-const setViewOrdersButtonEventListener = function() {
-  $('.view-orders').click(function() {
-    $.get('/orders', (orders) => {
-      renderOrdersLayout(orders);
+const setViewOrderButtonEventListener = function(order) {
+  $('.view-order').click(function() {
+    const url = `/orders/${order.id}`
+    $.get(url, (dishes) => {
+      renderOrderDetailsLayout(dishes);
     });
   });
 };
