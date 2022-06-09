@@ -36,8 +36,8 @@ const renderOrderDetailsLayout = (dishes) => {
   totalPrice /= 100;
 
   const finalPrice = Number(totalPrice + GST + PST).toFixed(2);
-  GST = Number(GST).toFixed(2);
-  PST = Number(PST).toFixed(2);
+  GST = Number(GST.toFixed(2));
+  PST = Number(PST.toFixed(2));
 
   const $orderContainer = $(`
     <article class="cart">
