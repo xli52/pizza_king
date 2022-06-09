@@ -1,4 +1,4 @@
-// order page rendering functions here
+// orders page rendering functions here
 
 export const renderOrdersLayout = (orders) => {
   $('main').empty();
@@ -31,7 +31,6 @@ export const renderOrdersLayout = (orders) => {
 }
 
 const createOrderElement = (order) => {
-  const photo = escapeText(order.photo);
   const id = escapeText(order.id);
   const date = escapeText(order.date.substring(0, 10));
   let status;
@@ -44,7 +43,7 @@ const createOrderElement = (order) => {
 
   const $orderRow = $(`
     <tr>
-      <td><img src="${photo}" alt="" class="cart-image"></td>
+      <td></td>
       <td>${id}</td>
       <td>${date}</td>
       <td><button class="d-btn-admin" id="${id}">Details</button></td>

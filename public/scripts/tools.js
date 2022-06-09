@@ -45,3 +45,25 @@ export const getIDFromAttr = function(idString) {
   const array = idString.split('-');
   return array[array.length - 1];
 };
+
+
+// Get an order's order_id, username, and date for order detail page
+export const getOrderHeading = function (dishes) {
+  const orderID = escapeText(dishes[0].order_id);
+  const userName = escapeText(dishes[0].user_name);
+  const date = escapeText(dishes[0].date).substring(0, 10);
+
+  return { orderID, userName, date };
+}
+
+
+// Get detail info of each dish user ordered
+export const getOrderDetails = function (dish) {
+  const url = escapeText(dish.url);
+  const dishName = escapeText(dish['dish_name'].toUpperCase());
+  const amount = escapeText(dish.amount);
+  const price = escapeText(dish.price / 100);
+
+  return { url, dishName, amount, price};
+};
+
