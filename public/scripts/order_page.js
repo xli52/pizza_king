@@ -19,7 +19,6 @@ export const renderOrdersLayout = (orders) => {
           </tr>
         </thead>
         <tbody class="table-body>
-        123
         </tbody>
       </table>
     </article>`);
@@ -61,31 +60,3 @@ const escapeText = function (str) {
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
-
-
-;
-// $(() => {
-//   $('.nav-order').on('click', (event) => {
-//     loadOrders();
-//   });
-
-//   $('main').on('click', 'button.d-btn-admin', (event) => {
-//     console.log('1234');
-//     const id = event.target.id;
-//     $.ajax({
-//       url: `users/orders/${id}`,
-//       success: function() {
-//         console.log("hello");
-//       }
-//     })
-//   })
-
-// });
-
-
-// const loadOrders = () => {
-//   $.get('/users/orders', (orders) => {
-//     $('main').empty();
-//     renderOrdersLayout(orders);
-//   })
-// };

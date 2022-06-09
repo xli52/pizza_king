@@ -67,14 +67,15 @@ const renderOrderDetailsLayout = (details) => {
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
-          </thead>
-          <tbody>
             <tr>
               <th scope="col">Dish</th>
               <th scope="col">Name</th>
               <th scope="col">Amount</th>
               <th scope="col">Price</th>
             </tr>
+          </thead>
+          <tbody>
+
           </tbody>
         </table>
       </div>
@@ -111,7 +112,7 @@ const createDishElement = (dish) => {
 
   const $dishRow = $(`
     <tr>
-      <td><img class="cart-image" src="${$url}" alt=""></td>
+      <td><img class="cart-image" src="${$url}"></td>
       <td>${$dish_name}</td>
       <td>${$amount}</td>
       <td>${$price}</td>
