@@ -28,7 +28,7 @@ const renderOrderDetailsLayout = (dishes) => {
   let totalPrice = 0;
 
   for (const dish of dishes) {
-    totalPrice += dish.price;
+    totalPrice += dish.price * dish.amount;
   };
 
   let GST = (Math.round(totalPrice * 0.05 * 100) / 10000);
