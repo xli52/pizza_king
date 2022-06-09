@@ -1,17 +1,8 @@
 /*
 *  Client facing scripts here
 */
-
-// Validate input text from cross-scripting attack
-const escapeText = function (str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-};
-
-const capFirstLetter = function(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
+import { setAddToCartEventListener, setCartButtonEventListener, setOrderButtonEventListener } from "./event.js";
+import { escapeText, capFirstLetter } from "./tools.js";
 
 //  Create dish HTML JQuery element
 const createDishElement = function(dish) {
@@ -28,7 +19,7 @@ const createDishElement = function(dish) {
           <div class="dish-dot-spacer">•</div>
           <div class="dish-calorie">${escapeText(dish.calorie)} Cal.</div>
         </div>
-        <i class="fa-solid fa-circle-plus" id="${escapeText(dish.id)}"></i>
+        <i class="fa-solid fa-circle-plus add-to-cart" id="dish-id-${escapeText(dish.id)}"></i>
       </div>
     </div>
     `
@@ -70,21 +61,31 @@ const createMenuElement = function(dishes) {
 
 // Create HTML elements for all menus and append them to the menu container
 const renderMenus = function(data) {
+  const $menuContainer = $('<div class="menu-container"></div>');
   const menus = createMenuElement(data);
   for (const index in menus) {
-    $('.menu-container').append(menus[index]);
+    $menuContainer.append(menus[index]);
   }
+  $('main').append($menuContainer);
 }
 
-//  Load menu and all dishes using AJAX request
-const loadMenus = function() {
+//  Load menu and all dishes using AJAX request and setup all event listeners
+export const loadMenus = function() {
+  $('main').empty();
   $.get('/menus', (data) => {
-    console.log('data: ', data[0]);
-    renderMenus(data);
+    renderMenus(data.dishes);
+    $('.cart-counter').text(data.count);
+    setAddToCartEventListener();
+    setCartButtonEventListener();
+    setOrderButtonEventListener();
   });
 };
 
 //  Load page
 $(document).ready(function() {
   loadMenus();
+  // When the "Yummy" logo is clicked
+  $('.nav-logo').on('click', () => {
+    loadMenus();
+  });
 });

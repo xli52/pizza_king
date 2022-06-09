@@ -1,0 +1,50 @@
+.cart-amount-editor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  height: auto;
+
+  .cart-add-button {
+    cursor: pointer;
+  }
+
+  .cart-minus-button {
+    cursor: pointer;
+  }
+
+}
+
+.cart-trash-button {
+  cursor: pointer;
+}
+
+.empty-cart {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .back-to-menu {
+    font-size: 20px;
+  }
+}
+
+.cart-place-order {
+  font-size: 20px;
+}
+
+.order-success {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .view-orders {
+    font-size: 20px;
+  }
+}

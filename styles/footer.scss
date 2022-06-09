@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #footer {
     display: flex;
     justify-content: space-around;
@@ -5,3 +6,73 @@
     height: 6rem;
     font-family: 'Nunito', sans-serif;
 }
+=======
+/*
+ * Footer layout
+ */
+
+ .footer {
+  margin-top: 100px;
+  border-top: 1px solid #E2E2E2;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 300px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.footer-logo {
+  margin: 50px;
+  margin-left: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.footer-text {
+  font-size: 20px;
+  margin: 30px;
+}
+
+.footer-right {
+  margin-top: 30px;
+  margin-right: 200px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #E2E2E2;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-logo-box {
+  font-size: 24px;
+  margin: 25px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width : 150px;
+  height: 40px;
+}
+
+.footer-term-box {
+  margin: 20px;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 35px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.footer-term {
+  margin: auto 20px;
+}
+
+>>>>>>> feature/routers

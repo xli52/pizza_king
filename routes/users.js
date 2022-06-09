@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
+// const { getOrdersByID } = require('./lib/queries');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -21,5 +22,6 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
   return router;
 };
