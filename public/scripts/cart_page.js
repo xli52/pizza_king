@@ -5,30 +5,19 @@ export const renderCart = (cart) => {
     <div class="cart-container">
       <article class="cart">
         <div class="cart-left">
+          <div>My Cart</div>
+          <div>Customer: John Doe  Date: ${Date.now()}</div>
           <table>
             <thead>
-              <tr>
-                <th scope="col">My Cart</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-              <tr>
-                <th scope="col">Customer: John Doe</th>
-                <th scope="col">Date: ${Date.now()}</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
               <tr>
                 <th scope="col">Dish</th>
                 <th scope="col">Name</th>
                 <th scope="col">Amount</th>
                 <th scope="col">Price</th>
-                <th scope="col"></th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody>
-
+            <tbody class="cart-dish-table">
             </tbody>
           </table>
         </div>
@@ -51,11 +40,12 @@ export const renderCart = (cart) => {
     </div>
   `);
 
+  $('main').append($cartContainer);
+
   for (const index in cart) {
-    $cartContainer.append(createCartDishElement(index, cart[index]));
+    $('.cart-dish-table').append(createCartDishElement(index, cart[index]));
   }
 
-  $('main').append($cartContainer);
 }
 
 //  Create HTML table element for each dish item in cart
