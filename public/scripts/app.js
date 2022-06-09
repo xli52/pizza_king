@@ -19,7 +19,7 @@ const createDishElement = function(dish) {
           <div class="dish-dot-spacer">•</div>
           <div class="dish-calorie">${escapeText(dish.calorie)} Cal.</div>
         </div>
-        <i class="fa-solid fa-circle-plus quick-add-to-cart" id="dish-id-${escapeText(dish.id)}"></i>
+        <i class="fa-solid fa-circle-plus add-to-cart" id="dish-id-${escapeText(dish.id)}"></i>
       </div>
     </div>
     `
@@ -70,10 +70,11 @@ const renderMenus = function(data) {
 }
 
 //  Load menu and all dishes using AJAX request and setup all event listeners
-const loadMenus = function() {
+export const loadMenus = function() {
+  $('main').empty();
   $.get('/menus', (data) => {
-    renderMenus(data[0]);
-    $('.cart-counter').text(data[1]);
+    renderMenus(data.dishes);
+    $('.cart-counter').text(data.count);
     setAddToCartEventListener();
     setCartButtonEventListener();
     setOrderButtonEventListener();
@@ -85,7 +86,6 @@ $(document).ready(function() {
   loadMenus();
   // When the "Yummy" logo is clicked
   $('.nav-logo').on('click', () => {
-    $('main').empty();
     loadMenus();
   });
 });

@@ -21,8 +21,9 @@ const menusRouter = (db) => {
     //  Query all dishes from database
     db.query('SELECT * FROM dishes;')
       .then((results) => {
+        const dishes = results.rows;
         const count = countAllDishes(req.session.cart);
-        res.send([results.rows, count]);
+        res.send({ dishes, count });
       })
       .catch((err) => {
         console.log(err.message);

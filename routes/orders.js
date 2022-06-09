@@ -31,6 +31,61 @@ const orderRouter = (db) => {
 
   });
 
+  //  POST /orders/
+  router.post('/', (req, res) => {
+
+    //  Insert order into database first
+    let queryString =
+    `
+    INSERT INTO orders (guest_id, ordered_at, is_completed)
+    VALUES
+    ($1, Now(), FALSE)
+    RETURNING *;
+    `;
+    db.query(queryString, [Number(req.session.userID)])
+      .then((results) => {
+
+        //  After the order is inserted, insert the order-dish relationships into database
+        const order = results.rows[0];
+        console.log('order: ', order);
+        queryString =
+        `
+        INSERT INTO orders_dishes (order_id, dish_id, amount)
+        VALUES
+        `;
+        const queryParam = [];
+        const cart = req.session.cart;
+        const dishIDArray = Object.keys(cart).map( x => Number(x) );
+        const amountArray = [];
+        for (const key in cart) {
+          amountArray.push(Number(cart[key]));
+        }
+        for (let i = 0; i < dishIDArray.length; i++) {
+          queryParam.push(order.id);
+          queryParam.push(dishIDArray[i]);
+          queryParam.push(amountArray[i]);
+        }
+        for (let i = 0; i < queryParam.length - 2; i += 3) {
+          queryString += (i === queryParam.length - 3) ? `($${i + 1}, $${i + 2}, $${i + 3}); ` : `($${i + 1}, $${i + 2}, $${i + 3}), `;
+        }
+
+        console.log('queryString: ', queryString);
+        console.log('queryParam: ', queryParam);
+
+        db.query(queryString, queryParam)
+          .then((results) => {
+            req.session.cart = {};
+            res.send(order);
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
+
   //  GET /orders/id/
   router.get('/:id', (req,res) => {
     const orderID = req.params.id;

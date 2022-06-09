@@ -1,17 +1,20 @@
-import { getCurrentDate, escapeText } from "./tools.js";
+import { getCurrentDate, escapeText, getBillDetails } from "./tools.js";
 
 //  Render cart contains
-export const renderCart = (dishes) => {
+export const renderCart = function(dishes) {
   $('main').empty();
 
+  if (dishes.length === 0) {
+    return;
+  }
 
+  const billDetails = getBillDetails(dishes);
 
   const $cartContainer = $(`
     <div class="cart-container">
       <article class="cart">
         <div class="cart-left">
-          <div>My Cart</div>
-          <div>Customer: Xiang  Date: ${getCurrentDate()}</div>
+          <h2>My Cart</h2>
           <table>
             <thead>
               <tr>
@@ -19,7 +22,7 @@ export const renderCart = (dishes) => {
                 <th scope="col">Name</th>
                 <th scope="col">Amount</th>
                 <th scope="col">Price</th>
-                <th scope="col">Action</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody class="cart-dish-table">
@@ -29,17 +32,13 @@ export const renderCart = (dishes) => {
         <div class="cart-right">
           <div class="cart-bill">
             <h3>Billing Total</h3>
-            <p>Sub-Total<span>$85.96</span></p>
-            <p>GST 5%<span>$4.30</span></p>
-            <p>PST 7%<span>$6.02</span></p>
+            <p>Sub-Total<span class="cart-sub-total">$${billDetails.subTotal}</span></p>
+            <p>GST 5%<span class="cart-gst">$${billDetails.gst}</span></p>
+            <p>PST 7%<span class="cart-pst">$${billDetails.pst}</span></p>
             <hr>
-            <p>Total<span>$96.28</span></p>
+            <p>Total<span class="cart-total">$${billDetails.total}</span></p>
           </div>
-          <div class="cart-placeorder">
-            <form action="/user/orders" method="GET">
-              <button>Place Order!</button>
-            </form>
-          </div>
+          <button class="cart-place-order">Place Order <i class="fa-solid fa-pizza-slice"></i></button>
         </div>
       </article>
     </div>
@@ -53,18 +52,47 @@ export const renderCart = (dishes) => {
 
 }
 
+//  Render empty cart contains
+export const renderEmptyCart =  function() {
+  $('main').empty();
+  const $emptyCart = $(`
+    <div class="empty-cart">
+      <h1> Your cart is empty! </h1>
+      <button class="back-to-menu">Back To Menu <i class="fa-solid fa-pizza-slice"></i></button>
+    <div>
+  `);
+  $('main').append($emptyCart);
+}
+
 //  Create HTML table element for each dish item in cart
 const createCartDishElement = function(dish) {
   const $dishTable =
   `
-  <tr>
+  <tr id="cart-table-id-${dish.id}">
     <td><img class="cart-image" src=${escapeText(dish.photo_url)} alt=${escapeText(dish.name)}></td>
     <td>${escapeText(dish.name.toUpperCase())}</td>
-    <td><input class="cart-amount-input" id="cart-input-id-${dish.id}" type="number" min="0" value=${dish.amount} name="amount"></td>
-    <td>$${escapeText(dish.price * dish.amount / 100)}</td>
-    <td><button class="cart-update-button" id="cart-update-${dish.id}">Update</button></td>
-    <td><button class="cart-remove-button" id="cart-update-${dish.id}">Remove</button></td>
+    <td>
+      <div class="cart-amount-editor">
+        <i class="fa-solid fa-circle-minus cart-minus-button" id="cart-minus-id-${dish.id}"></i>
+        <div class="cart-amount-text" id="cart-amount-id-${dish.id}">${dish.amount}</div>
+        <i class="fa-solid fa-circle-plus cart-add-button" id="cart-add-id-${dish.id}"></i>
+      </div>
+    </td>
+    <td>
+      <div id="cart-price-id-${dish.id}">
+        $${dish.price * dish.amount / 100}
+      </div>
+    </td>
+    <td><i class="fa-solid fa-trash-can cart-trash-button" id="cart-trash-${dish.id}"></i></td>
   </tr>
   `;
   return $dishTable;
+};
+
+export const updateBillDetails = function(dishes) {
+  const billDetails = getBillDetails(dishes);
+  $('.cart-sub-total').text(`$${billDetails.subTotal}`);
+  $('.cart-gst').text(`$${billDetails.gst}`);
+  $('.cart-pst').text(`$${billDetails.pst}`);
+  $('.cart-total').text(`$${billDetails.total}`);
 };
