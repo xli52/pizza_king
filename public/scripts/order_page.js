@@ -36,7 +36,7 @@ const createOrderElement = (order) => {
   const date = escapeText(order.date.substring(0, 10));
   let status;
 
-  if (order.status === 'true') {
+  if (order.status === true) {
     status = 'Completed';
   } else {
     status = 'Pending';
