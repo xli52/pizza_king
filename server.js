@@ -7,6 +7,7 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const { client, numbers } = require('./twilio');
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -43,7 +44,7 @@ const orderRoutes = require('./routes/orders');
 app.use("/users", usersRoutes(db));
 app.use('/menus', menusRoutes(db));
 app.use('/cart', cartRoutes(db));
-app.use('/orders', orderRoutes(db));
+app.use('/orders', orderRoutes(db, client, numbers));
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

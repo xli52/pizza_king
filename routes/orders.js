@@ -7,7 +7,7 @@ router.use(cookieSession({
   keys: ['key1', 'key2', 'key3']
 }));
 
-const orderRouter = (db) => {
+const orderRouter = (db, client, numbers) => {
   //  GET /orders/
   router.get('/', (req, res) => {
 
@@ -100,6 +100,22 @@ const orderRouter = (db) => {
       .then(results => res.send(results.rows))
       .catch(e => e.message);
   });
+
+  // POST /orders/sms (twilio api)
+  router.post('/sms', (req,res) => {
+    console.log('I receive your request!');
+    // database insertion and query starts from here
+    let x = 4;
+    client.messages
+    .create({
+      body: `Thank you for your oder! It will be ready in ${x} minutes`,
+      from: numbers.twilioNum,
+      to: numbers.recNum //use query result to replace this number
+    })
+    .then(message => console.log(message.status));
+    res.send([]);
+  })
+
 
   return router;
 }
