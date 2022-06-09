@@ -63,11 +63,8 @@ const renderOrderDetailsLayout = (dishes) => {
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
-<<<<<<< HEAD
-=======
           </thead>
           <thead>
->>>>>>> 8ee0e1b0a55e13b5c60bc1472a1b0e4857c66a7e
             <tr>
               <th scope="col">Dish</th>
               <th scope="col">Name</th>
@@ -75,12 +72,7 @@ const renderOrderDetailsLayout = (dishes) => {
               <th scope="col">Price</th>
             </tr>
           </thead>
-<<<<<<< HEAD
-          <tbody>
-
-=======
           <tbody class="order-dish-table">
->>>>>>> 8ee0e1b0a55e13b5c60bc1472a1b0e4857c66a7e
           </tbody>
         </table>
       </div>
@@ -115,17 +107,10 @@ const createDishElement = (dish) => {
 
   const $dishRow = $(`
     <tr>
-<<<<<<< HEAD
-      <td><img class="cart-image" src="${$url}"></td>
-      <td>${$dish_name}</td>
-      <td>${$amount}</td>
-      <td>${$price}</td>
-=======
       <td><img class="cart-image" src="${url}" alt=""></td>
       <td>${dishName}</td>
       <td>${amount}</td>
       <td>${price}</td>
->>>>>>> 8ee0e1b0a55e13b5c60bc1472a1b0e4857c66a7e
     </tr>
   `);
 

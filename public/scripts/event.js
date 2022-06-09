@@ -19,7 +19,6 @@ export const setOrderButtonEventListener = function() {
     $.ajax({
       url: `/orders`,
       success: (orders) => {
-        $('main').empty();
         renderOrdersLayout(orders);
       }
     });
@@ -29,7 +28,6 @@ export const setOrderButtonEventListener = function() {
     $.ajax({
       url: `/orders`,
       success: (orders) => {
-        $('main').empty();
         renderOrdersLayout(orders);
       }
     });

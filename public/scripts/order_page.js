@@ -1,9 +1,8 @@
 // order page rendering functions here
 
 export const renderOrdersLayout = (orders) => {
-
-  const orderlist = {};
-  orderlist['layout'] = $(`
+  $('main').empty();
+  const $ordersTable = $(`
       <article>
       <h2>Orders</h2>
 
@@ -18,41 +17,42 @@ export const renderOrdersLayout = (orders) => {
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody class="table-body>
+        <tbody class="table-body">
+
         </tbody>
       </table>
     </article>`);
 
+  $('main').append($ordersTable);
+
   for (const order of orders) {
-    const $order = createOrderElement(order);
-    orderlist['layout'].children('table').append($order);
+    $('.table-body').append(createOrderElement(order));
   }
-  return $('main').append(orderlist.layout);
 }
 
 const createOrderElement = (order) => {
-  const $photo = escapeText(order.photo);
-  const $id = escapeText(order.id);
-  const $date = escapeText(order.date.substring(0, 10));
-  let $status;
+  const photo = escapeText(order.photo);
+  const id = escapeText(order.id);
+  const date = escapeText(order.date.substring(0, 10));
+  let status;
 
   if (order.status === 'true') {
-    $status = 'Completed';
+    status = 'Completed';
   } else {
-    $status = 'Pending';
+    status = 'Pending';
   }
 
-  const $order = $(`
+  const $orderRow = $(`
     <tr>
-    <td><img src="${$photo}" alt="" class="cart-image"></td>
-    <td>${$id}</td>
-    <td>${$date}</td>
-    <td><button class="d-btn-admin" id="${$id}">Details</button></td>
-    <td>Pending</td>
+    <td><img src="${photo}" alt="" class="cart-image"></td>
+    <td>${id}</td>
+    <td>${date}</td>
+    <td><button class="d-btn-admin" id="${id}">Details</button></td>
+    <td>${status}</td>
     <td></td>
     </tr>
   `)
-  return $order;
+  return $orderRow;
 };
 
 const escapeText = function (str) {
