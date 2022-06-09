@@ -14,7 +14,7 @@ const cartRouter = (db) => {
     const cart = req.session.cart;
 
     //  Get data of all dishes in the cart from the database
-    const queryParam = Object.keys(cart).map( x => Number(x));
+    const queryParam = Object.keys(cart).map( x => Number(x) );
     let queryString =
     `
     SELECT * FROM dishes
@@ -34,7 +34,6 @@ const cartRouter = (db) => {
       .catch((err) => {
         console.log(err.message);
       });
-
   });
 
   //  POST /cart/

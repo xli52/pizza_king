@@ -1,14 +1,17 @@
-import { getCurrentDate } from "./tools.js";
+import { getCurrentDate, escapeText } from "./tools.js";
 
 //  Render cart contains
 export const renderCart = (dishes) => {
   $('main').empty();
+
+
+
   const $cartContainer = $(`
     <div class="cart-container">
       <article class="cart">
         <div class="cart-left">
           <div>My Cart</div>
-          <div>Customer: John Doe  Date: ${getCurrentDate()}</div>
+          <div>Customer: Xiang  Date: ${getCurrentDate()}</div>
           <table>
             <thead>
               <tr>
@@ -55,12 +58,12 @@ const createCartDishElement = function(dish) {
   const $dishTable =
   `
   <tr>
-    <td><img class="cart-image" src="https://d1ralsognjng37.cloudfront.net/0c9767c4-442b-4715-ab37-476a61ba2aaf.jpeg" alt=""></td>
-    <td>THE ORIGINAL BBQ SHICKEN PIZZA</td>
-    <td><input class="dish_id" type="number" min="0" value="2" name="amount"></td>
-    <td>$19.99</td>
-    <td><button id="dish_id">Update</button></td>
-    <td><button class="dish_id" id="delete">Remove</button></td>
+    <td><img class="cart-image" src=${escapeText(dish.photo_url)} alt=${escapeText(dish.name)}></td>
+    <td>${escapeText(dish.name.toUpperCase())}</td>
+    <td><input class="cart-amount-input" id="cart-input-id-${dish.id}" type="number" min="0" value=${dish.amount} name="amount"></td>
+    <td>$${escapeText(dish.price * dish.amount / 100)}</td>
+    <td><button class="cart-update-button" id="cart-update-${dish.id}">Update</button></td>
+    <td><button class="cart-remove-button" id="cart-update-${dish.id}">Remove</button></td>
   </tr>
   `;
   return $dishTable;
