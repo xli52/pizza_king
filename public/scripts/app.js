@@ -1,23 +1,8 @@
 /*
 *  Client facing scripts here
 */
-
-import {
-  setAddToCartEventListener,
-  setCartButtonEventListener,
-  setOrderButtonEventListener
-} from "./event.js";
-
-// Validate input text from cross-scripting attack
-const escapeText = function (str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-};
-
-const capFirstLetter = function(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
+import { setAddToCartEventListener, setCartButtonEventListener, setOrderButtonEventListener } from "./event.js";
+import { escapeText, capFirstLetter } from "./tools.js";
 
 //  Create dish HTML JQuery element
 const createDishElement = function(dish) {
