@@ -32,7 +32,6 @@ export const renderOrdersLayout = (orders) => {
 }
 
 const createOrderElement = (order) => {
-  console.log(order);
   const $photo = escapeText(order.photo);
   const $id = escapeText(order.id);
   const $date = escapeText(order.date.substring(0, 10));

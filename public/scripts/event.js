@@ -15,7 +15,16 @@ export const setCartButtonEventListener = function() {
 export const setOrderButtonEventListener = function() {
   $('.nav-order').click(function() {
     console.log('orders button clicked');
-    const id = 1;
+    $.ajax({
+      url: `/orders`,
+      success: (orders) => {
+        $('main').empty();
+        renderOrdersLayout(orders);
+      }
+    });
+  });
+
+  $('main').on('click', '.back-btn', () => {
     $.ajax({
       url: `/orders`,
       success: (orders) => {
