@@ -32,7 +32,7 @@ const orderRouter = (db, client, numbers) => {
   });
 
   //  POST /orders/
-  router.post('/', (req, res) => {
+  router.post('/sms', (req, res) => {
 
     //  Insert order into database first
     let queryString =
@@ -75,6 +75,16 @@ const orderRouter = (db, client, numbers) => {
         db.query(queryString, queryParam)
           .then((results) => {
             req.session.cart = {};
+
+            let x = 5;
+
+            client.messages
+            .create({
+              body: `Thank you for your oder! It will be ready in ${x} minutes`,
+              from: numbers.twilioNum,
+              to: numbers.recNum //use query result to replace this number
+            })
+            .then(message => console.log(message.status));
             res.send(order);
           })
           .catch((err) => {
@@ -100,22 +110,6 @@ const orderRouter = (db, client, numbers) => {
       .then(results => res.send(results.rows))
       .catch(e => e.message);
   });
-
-  // POST /orders/sms (twilio api)
-  router.post('/sms', (req,res) => {
-    console.log('I receive your request!');
-    // database insertion and query starts from here
-    let x = 4;
-    client.messages
-    .create({
-      body: `Thank you for your oder! It will be ready in ${x} minutes`,
-      from: numbers.twilioNum,
-      to: numbers.recNum //use query result to replace this number
-    })
-    .then(message => console.log(message.status));
-    res.send([]);
-  })
-
 
   return router;
 }
