@@ -10,7 +10,6 @@ router.use(cookieSession({
 const orderRouter = (db) => {
   //  GET /orders/
   router.get('/', (req, res) => {
-
     //  Get all orders by user from database
     const queryString =
     `
@@ -33,7 +32,6 @@ const orderRouter = (db) => {
 
   //  POST /orders/
   router.post('/', (req, res) => {
-
     //  Insert order into database first
     let queryString =
     `
@@ -47,7 +45,6 @@ const orderRouter = (db) => {
 
         //  After the order is inserted, insert the order-dish relationships into database
         const order = results.rows[0];
-        console.log('order: ', order);
         queryString =
         `
         INSERT INTO orders_dishes (order_id, dish_id, amount)
@@ -69,11 +66,9 @@ const orderRouter = (db) => {
           queryString += (i === queryParam.length - 3) ? `($${i + 1}, $${i + 2}, $${i + 3}); ` : `($${i + 1}, $${i + 2}, $${i + 3}), `;
         }
 
-        console.log('queryString: ', queryString);
-        console.log('queryParam: ', queryParam);
-
         db.query(queryString, queryParam)
-          .then((results) => {
+          .then(() => {
+            //  Empty the cart
             req.session.cart = {};
             res.send(order);
           })

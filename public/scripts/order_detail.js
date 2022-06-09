@@ -19,7 +19,7 @@ $(() => {
 // rendering functions for order_detail page
 ////////////////////////////////////////////////
 
-const renderOrderDetailsLayout = (dishes) => {
+export const renderOrderDetailsLayout = (dishes) => {
   $('main').empty();
 
   const orderHeading = getOrderHeading(dishes);
