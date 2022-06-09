@@ -1,12 +1,13 @@
-import { loadCartPage } from "./cart_page.js";
+import { renderCart } from "./cart_page.js";
 import { renderOrdersLayout } from './order_page.js'
+import { countAllDishes } from "./tools.js";
 
 //  Setup click cart button event listener
 export const setCartButtonEventListener = function() {
   $('.nav-cart').click(function() {
     $.get('/cart', (cart) => {
       console.log('Loading cart: ', cart);
-      loadCartPage(cart);
+      renderCart(cart);
     });
   });
 };
@@ -50,14 +51,4 @@ export const setAddToCartEventListener = function() {
       $('.cart-counter').text(count);
     })
   });
-};
-
-//Helper functions
-
-const countAllDishes = function(cart) {
-  let count = 0;
-  for (const index in cart) {
-    count += cart[index];
-  }
-  return count;
 };

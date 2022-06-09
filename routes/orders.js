@@ -31,8 +31,9 @@ const orderRouter = (db) => {
 
   });
 
-  router.get('/:order_id', (req,res) => {
-    const order_id = req.params.order_id;
+  //  GET /orders/id/
+  router.get('/:id', (req,res) => {
+    const orderID = req.params.id;
     db.query((`
       SELECT u.name AS user_name, o.id AS order_id, o.started_at AS date, d.name as dish_name, od.amount AS amount, d.price AS price, d.photo_url AS url
       FROM users u
@@ -40,7 +41,7 @@ const orderRouter = (db) => {
         JOIN orders_dishes od ON o.id = od.order_id
         JOIN dishes d ON d.id = od.dish_id
       WHERE o.id = $1;
-      `), [order_id])
+      `), [orderID])
       .then(results => res.send(results.rows))
       .catch(e => e.message);
   });
