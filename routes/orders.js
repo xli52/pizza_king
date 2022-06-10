@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cookieSession = require('cookie-session');
+const { promiseImpl } = require('ejs');
 
 router.use(cookieSession({
   name: 'session',
@@ -156,9 +157,25 @@ const orderRouter = (db, client, numbers) => {
               to: tel
             })
             .then(message => console.log(message.status))
+            .then(() => {
+              db.query(`
+                UPDATE orders
+                SET is_completed = $1
+                WHERE id = $2
+                RETURNING *;
+                `, [true, order_id])
+              .then((results) => {
+                console.log(results.rows);
+              })
+              .catch((err) => {
+                console.log(err.message)
+              })
+            })
             .catch(e => console.log(e.message));
           }, prepTime * 60000)
         })
+        .catch(e => console.log(e.message));
+
         res.end();
       })
       .catch(e => console.log(e.message));
