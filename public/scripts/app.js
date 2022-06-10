@@ -13,7 +13,7 @@ const createDishElement = function(dish) {
         <picture class="dish-image-box">
           <img class="dish-image" src=${escapeText(dish.photo_url)} alt=${escapeText(dish.name)}>
         </picture>
-        <div class="dish-name">${escapeText(dish.name)}</div>
+        <div class="dish-name">${escapeText(dish.name).toUpperCase()}</div>
         <div class="dish-details">
           <div class="dish-price">$${escapeText(dish.price / 100)}</div>
           <div class="dish-dot-spacer">•</div>
@@ -72,6 +72,8 @@ const renderMenus = function(data) {
 //  Load menu and all dishes using AJAX request and setup all event listeners
 export const loadMenus = function() {
   $('main').empty();
+  $(window).scrollTop(0);
+
   $.get('/menus', (data) => {
     renderMenus(data.dishes);
     $('.cart-counter').text(data.count);
@@ -84,7 +86,7 @@ export const loadMenus = function() {
 //  Load page
 $(document).ready(function() {
   loadMenus();
-  // When the "Yummy" logo is clicked
+  // When the "Pizza King" logo is clicked
   $('.nav-logo').on('click', () => {
     loadMenus();
   });
