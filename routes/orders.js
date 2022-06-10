@@ -74,7 +74,7 @@ const orderRouter = (db, client, numbers) => {
 
         db.query(queryString, queryParam)
           .then((results) => {
-            const newQueryParam = [queryParam.pop(0)];
+            const newQueryParam = [queryParam.shift()];
             db.query(`SELECT od.order_id, d.name, od.amount
                       FROM orders_dishes od JOIN dishes d ON od.dish_id = d.id
                       WHERE od.order_id = $1`, newQueryParam)
@@ -113,6 +113,9 @@ const orderRouter = (db, client, numbers) => {
 
   // POST /orders/sms/res --> send a message to customer after owner has specified how much preparation time is needed
   router.post('/sms/res', (req, res) => {
+    const cart = req.session.cart;
+
+    console.log('Where is my cart :', cart);
     const content = req.body.Body.split('-');
     const order_id = content[0];
     const prepTime = content[1];
