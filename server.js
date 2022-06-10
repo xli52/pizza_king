@@ -7,6 +7,7 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const { client, numbers } = require('./twilio');
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -41,7 +42,7 @@ const orderRoutes = require('./routes/orders');
 //  Mount all resource routes
 app.use('/menus', menusRoutes(db));
 app.use('/cart', cartRoutes(db));
-app.use('/orders', orderRoutes(db));
+app.use('/orders', orderRoutes(db, client, numbers));
 
 app.listen(PORT, () => {
   console.log(`Pizza King listening on port ${PORT}`);
