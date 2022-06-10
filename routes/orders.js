@@ -169,7 +169,7 @@ const orderRouter = (db, client, numbers) => {
   router.get('/:id', (req,res) => {
     const orderID = req.params.id;
     db.query((`
-      SELECT u.name AS user_name, o.id AS order_id, o.started_at AS date, d.name as dish_name, od.amount AS amount, d.price AS price, d.photo_url AS url
+      SELECT u.name AS user_name, o.id AS order_id, o.ordered_at AS date, d.name as dish_name, od.amount AS amount, d.price AS price, d.photo_url AS url, o.is_completed AS status
       FROM users u
         JOIN orders o ON u.id = o.guest_id
         JOIN orders_dishes od ON o.id = od.order_id

@@ -24,6 +24,13 @@ export const renderOrderDetailsLayout = (dishes) => {
   $(window).scrollTop(0);
 
   const orderHeading = getOrderHeading(dishes);
+  let status;
+
+  if(orderHeading.status === 'true') {
+    status = 'Completed';
+  } else {
+    status = 'Pending';
+  }
 
   const billDetails = getBillDetails(dishes);
 
@@ -39,7 +46,7 @@ export const renderOrderDetailsLayout = (dishes) => {
               <tr style="font-size: 22px;">
                 <th scope="col" style="padding: 20px 0;">Customer: ${orderHeading.userName}</th>
                 <th scope="col">Date: ${orderHeading.date}</th>
-                <th scope="col">Status: 😁</th>
+                <th scope="col">Status: ${status}</th>
                 <th scope="col"></th>
               </tr>
             </thead>

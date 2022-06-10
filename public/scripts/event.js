@@ -160,7 +160,7 @@ export const setBackButtonEventListener = function() {
 //  Set up place order button click listener
 const setPlaceOrderButtonEventListner = function() {
   $('.cart-place-order').click(function() {
-    $.post('/orders/sms', (data) => {
+    $.post('/orders/sms', (order) => {
       $('.cart-counter').text(0);
       renderOrderSuccessPage();
       setViewOrderButtonEventListener(order);

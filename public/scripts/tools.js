@@ -51,8 +51,9 @@ export const getOrderHeading = function (dishes) {
   const orderID = escapeText(dishes[0].order_id);
   const userName = escapeText(dishes[0].user_name);
   const date = escapeText(dishes[0].date).substring(0, 10);
+  const status = escapeText(dishes[0].status);
 
-  return { orderID, userName, date };
+  return { orderID, userName, date, status };
 }
 
 // Get detail info of each dish user ordered
