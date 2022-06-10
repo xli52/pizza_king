@@ -126,7 +126,7 @@ const orderRouter = (db, client, numbers) => {
 
   // POST /orders/sms/res --> send a message to customer after owner has specified how much preparation time is needed
   router.post('/sms/res', (req, res) => {
-
+    //receives owner's response, query the database to get the order_id
     const content = req.body.Body.split('-');
     const order_id = content[0];
     const prepTime = content[1];
@@ -149,7 +149,20 @@ const orderRouter = (db, client, numbers) => {
           from: numbers.twilioNum,
           to: tel
         })
-        .then(message => console.log(message.status));
+        .then(message => console.log(message.status))
+        .then(() => {
+          // after the prepTime is up, send a sms to the user reminder them to pick up their order.
+          setTimeout(() => {
+            client.messages
+            .create({
+              body: `Thank you for waiting. Your order is ready for pick up now!`,
+              from: numbers.twilioNum,
+              to: tel
+            })
+            .then(message => console.log(message.status))
+            .catch(e => console.log(e.message));
+          }, prepTime * 60000)
+        })
         res.end();
       })
       .catch(e => console.log(e.message));
