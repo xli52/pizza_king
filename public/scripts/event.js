@@ -8,14 +8,14 @@ import { renderOrderDetailsLayout } from "./order_detail.js";
 export const setOrderButtonEventListener = function() {
   $('.nav-order').click(function() {
     $.get('/orders', (orders) => {
-        renderOrdersLayout(orders);
+      renderOrdersLayout(orders);
     });
   });
 
   $('main').on('click', '.back-btn', () => {
     $.get('/orders', (orders) => {
-        renderOrdersLayout(orders);
-     });
+      renderOrdersLayout(orders);
+    });
   });
 };
 
@@ -81,7 +81,7 @@ const setCartReduceEventListener = function() {
         $(`#cart-amount-id-${id}`).text(data.cart[id]);
         for (const dish of data.dishes) {
           if (dish.id === Number(id)) {
-            $(`#cart-price-id-${id}`).text(`$${dish.price * dish.amount / 100}`)
+            $(`#cart-price-id-${id}`).text(`$${dish.price * dish.amount / 100} CAD`)
           }
         }
       }
@@ -107,7 +107,7 @@ const setCartAddEventListener = function() {
       $(`#cart-amount-id-${id}`).text(data.cart[id]);
       for (const dish of data.dishes) {
         if (dish.id === Number(id)) {
-          $(`#cart-price-id-${id}`).text(`$${dish.price * dish.amount / 100}`)
+          $(`#cart-price-id-${id}`).text(`$${dish.price * dish.amount / 100} CAD`)
         }
       }
 
@@ -163,7 +163,6 @@ const setPlaceOrderButtonEventListner = function() {
     $.post('/orders', (order) => {
       $('.cart-counter').text(0);
       renderOrderSuccessPage();
-      $(window).scrollTop(0);
       setViewOrderButtonEventListener(order);
       //  Send SMS to owner and guest...
     });

@@ -2,15 +2,17 @@
 
 export const renderOrdersLayout = (orders) => {
   $('main').empty();
-  const $ordersTable = $(`
-      <article>
-      <h2>Orders</h2>
+  $(window).scrollTop(0);
 
-      <table class="table">
-        <thead class="table-head">
+  const $ordersTable = $(`
+    <div style="padding: 20px 15%; font-family: 'Nunito', sans-serif;">
+      <div style="text-align: center;">
+        <h1>My Orders</h1>
+      </div>
+      <table style="font-size: 24px;width: 100%; margin-top: 60px">
+        <thead>
           <tr>
-            <th scope="col"></th>
-            <th scope="col">Order_id</th>
+            <th style="padding: 20px 0px;" scope="col">Order ID</th>
             <th scope="col">Date</th>
             <th scope="col">Details</th>
             <th scope="col">Status</th>
@@ -18,10 +20,9 @@ export const renderOrdersLayout = (orders) => {
           </tr>
         </thead>
         <tbody class="table-body">
-
         </tbody>
       </table>
-    </article>`);
+    </div>`);
 
   $('main').append($ordersTable);
 
@@ -43,8 +44,7 @@ const createOrderElement = (order) => {
 
   const $orderRow = $(`
     <tr>
-      <td></td>
-      <td>${id}</td>
+      <td style="padding: 20px 0px;">${id}</td>
       <td>${date}</td>
       <td><button class="d-btn-admin" id="${id}">Details</button></td>
       <td>${status}</td>

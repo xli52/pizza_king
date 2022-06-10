@@ -44,5 +44,5 @@ app.use('/cart', cartRoutes(db));
 app.use('/orders', orderRoutes(db));
 
 app.listen(PORT, () => {
-  console.log(`Yummy listening on port ${PORT}`);
+  console.log(`Pizza King listening on port ${PORT}`);
 });

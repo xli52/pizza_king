@@ -21,61 +21,55 @@ $(() => {
 
 export const renderOrderDetailsLayout = (dishes) => {
   $('main').empty();
+  $(window).scrollTop(0);
 
   const orderHeading = getOrderHeading(dishes);
 
   const billDetails = getBillDetails(dishes);
 
   const $orderContainer = $(`
-    <article class="cart">
-      <div class="cart-left">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Order No. ${orderHeading.orderID}</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-            <tr>
-              <th scope="col">Customer:${orderHeading.userName}</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-            <tr>
-              <th scope="col">Date: ${orderHeading.date}</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <thead>
-            <tr>
-              <th scope="col">Dish</th>
-              <th scope="col">Name</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Price</th>
-            </tr>
-          </thead>
-          <tbody class="order-dish-table">
-          </tbody>
-        </table>
+    <div class="cart-container">
+      <div class="cart-title">
+        <h1>Order No. ${orderHeading.orderID}</h1>
       </div>
-      <div class="cart-right">
-        <div class="cart-bill">
-          <h3>Billing Total</h3>
-          <p>Sub-Total<span>$${billDetails.subTotal}</span></p>
-          <p>GST 5%<span>$${billDetails.gst}</span></p>
-          <p>PST 7%<span>$${billDetails.pst}</span></p>
-          <hr>
-          <p>Total<span>$${billDetails.total}</span></p>
+      <article class="cart">
+        <div class="cart-left">
+          <table class="cart-table">
+            <thead>
+              <tr style="font-size: 22px;">
+                <th scope="col" style="padding: 20px 0;">Customer: ${orderHeading.userName}</th>
+                <th scope="col">Date: ${orderHeading.date}</th>
+                <th scope="col">Status: 😁</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <thead>
+              <tr class="cart-table-header">
+                <th scope="col" class="cart-table-column">Dish</th>
+                <th scope="col">Name</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody class="order-dish-table">
+            </tbody>
+          </table>
         </div>
-        <div class="cart-placeorder">
-            <button class="back-btn">Back to Orders</button>
+        <div class="cart-right">
+          <div class="cart-bill">
+            <h3 class="bill-title">Billing Total</h3>
+            <p class="bill-detail">Sub-Total<span class="cart-sub-total">$${billDetails.subTotal} CAD</span></p>
+            <p class="bill-detail">GST 5%<span class="cart-gst">$${billDetails.gst} CAD</span></p>
+            <p class="bill-detail">PST 7%<span class="cart-pst">$${billDetails.pst} CAD</span></p>
+            <hr>
+            <p class="bill-detail">Total<span class="cart-total">$${billDetails.total} CAD</span></p>
+          </div>
+          <div class="cart-place-order-box">
+              <button class="back-btn">Back to Orders</button>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </div>
   `);
 
   $('main').append($orderContainer);
@@ -89,13 +83,26 @@ const createDishElement = (dish) => {
 
   const orderDetails = getOrderDetails(dish);
 
-  const $dishRow = $(`
-    <tr>
-      <td><img class="cart-image" src="${orderDetails.url}" alt=""></td>
-      <td>${orderDetails.dishName}</td>
-      <td>${orderDetails.amount}</td>
-      <td>${orderDetails.price}</td>
-    </tr>
+  const $dishRow = $(
+  `
+  <tr>
+    <td><img class="cart-image" src=${orderDetails.url} alt=${orderDetails.dishName}></td>
+    <td>
+      <div class="cart-dish-name">
+        ${orderDetails.dishName.toUpperCase()}
+      </div>
+    </td>
+    <td>
+      <div style="text.align: center;">
+        <div class="cart-amount-text" >${orderDetails.amount}</div>
+      </div>
+    </td>
+    <td>
+      <div class="cart-price">
+        $${orderDetails.price} CAD
+      </div>
+    </td>
+  </tr>
   `);
 
   return $dishRow;
