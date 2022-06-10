@@ -17,7 +17,6 @@ const menusRouter = (db) => {
     if (!req.session.userID) {
       req.session.userID = '1';
     }
-
     //  Query all dishes from database
     db.query('SELECT * FROM dishes;')
       .then((results) => {
