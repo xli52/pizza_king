@@ -34,6 +34,26 @@ const orderRouter = (db, client, numbers) => {
   //  POST /orders/sms
   router.post('/sms', (req, res) => {
 
+    const createQueryParam = (order) => {
+      const queryParam = [];
+      const cart = req.session.cart;
+      const dishIDArray = Object.keys(cart).map( x => Number(x) );
+      const amountArray = [];
+
+      for (const key in cart) {
+        amountArray.push(Number(cart[key]));
+      }
+
+      for (let i = 0; i < dishIDArray.length; i++) {
+        queryParam.push(order.id);
+        queryParam.push(dishIDArray[i]);
+        queryParam.push(amountArray[i]);
+      }
+
+      return queryParam;
+    }
+
+
     //  Insert order into database first
     let queryString =
     `
@@ -45,26 +65,18 @@ const orderRouter = (db, client, numbers) => {
     db.query(queryString, [Number(req.session.userID)])
       .then((results) => {
 
-        //  After the order is inserted, insert the order-dish relationships into database
         const order = results.rows[0];
-        console.log('order: ', order);
+
+        //  After the order is inserted, insert the order-dish relationships into database
+
         queryString =
         `
         INSERT INTO orders_dishes (order_id, dish_id, amount)
         VALUES
         `;
-        const queryParam = [];
-        const cart = req.session.cart;
-        const dishIDArray = Object.keys(cart).map( x => Number(x) );
-        const amountArray = [];
-        for (const key in cart) {
-          amountArray.push(Number(cart[key]));
-        }
-        for (let i = 0; i < dishIDArray.length; i++) {
-          queryParam.push(order.id);
-          queryParam.push(dishIDArray[i]);
-          queryParam.push(amountArray[i]);
-        }
+
+        queryParam = createQueryParam(order);
+
         for (let i = 0; i < queryParam.length - 2; i += 3) {
           queryString += (i === queryParam.length - 3) ? `($${i + 1}, $${i + 2}, $${i + 3}); ` : `($${i + 1}, $${i + 2}, $${i + 3}), `;
         }
@@ -74,47 +86,47 @@ const orderRouter = (db, client, numbers) => {
 
         db.query(queryString, queryParam)
           .then((results) => {
-            const newQueryParam = [queryParam[0]];
-            db.query(`SELECT od.order_id, d.name, od.amount
-                      FROM orders_dishes od JOIN dishes d ON od.dish_id = d.id
-                      WHERE od.order_id = $1`, newQueryParam)
-              .then(results => {
-                const orderDetails = results.rows;
-                const order_id = queryParam[0];
-                let textString = `Order_id: ${order_id}.\n`;
+            console.log('query results: ', results);
+          })
+          .catch(err => console.log(err.message));
 
-                for (const dish of orderDetails) {
-                  textString += `${dish.name} x ${dish.amount} \n`;
-                }
+        const newQueryParam = [queryParam[0]];
+        db.query(`SELECT od.order_id, d.name, od.amount
+                  FROM orders_dishes od JOIN dishes d ON od.dish_id = d.id
+                  WHERE od.order_id = $1`, newQueryParam)
+          .then(results => {
+            const orderDetails = results.rows;
+            const order_id = newQueryParam[0];
+            let textString = `Order_id: ${order_id}.\n`;
 
-                client.messages
-                .create({
-                  // use loop to generate the order list string
-                  body: `You have received a new order: ${textString}\nPlease specify your response in the following format: {order_id}-{mins}.`,
-                  from: numbers.twilioNum,
-                  to: numbers.recNum //send message to owner
-                })
-                .then((message) => {
-                  console.log(message.status)
-                });
-                req.session.cart = {};
-                res.send(order);
+            for (const dish of orderDetails) {
+              textString += `${dish.name} x ${dish.amount} \n`;
+            }
+            client.messages
+              .create({
+                // use loop to generate the order list string
+                body: `You have received a new order: ${textString}\nPlease specify your response in the following format: {order_id}-{mins}`,
+                from: numbers.twilioNum,
+                to: numbers.recNum //send message to owner
               })
+              .then((message) => {
+                console.log(message.status)
+              });
+        req.session.cart = {};
+        res.send(order);
           })
           .catch((err) => {
             console.log(err.message);
           });
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      .catch(err => console.log(err.message));
   });
+
+
 
   // POST /orders/sms/res --> send a message to customer after owner has specified how much preparation time is needed
   router.post('/sms/res', (req, res) => {
-    const cart = req.session.cart;
 
-    console.log('Where is my cart :', cart);
     const content = req.body.Body.split('-');
     const order_id = content[0];
     const prepTime = content[1];
