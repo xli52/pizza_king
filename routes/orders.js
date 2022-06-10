@@ -74,13 +74,12 @@ const orderRouter = (db, client, numbers) => {
 
         db.query(queryString, queryParam)
           .then((results) => {
-            const newQueryParam = [queryParam.shift()];
+            const newQueryParam = [queryParam[0]];
             db.query(`SELECT od.order_id, d.name, od.amount
                       FROM orders_dishes od JOIN dishes d ON od.dish_id = d.id
                       WHERE od.order_id = $1`, newQueryParam)
               .then(results => {
                 const orderDetails = results.rows;
-                console.log(results.rows);
                 const order_id = queryParam[0];
                 let textString = `Order_id: ${order_id}.\n`;
 
